@@ -1,0 +1,230 @@
+100% 	World        	round:      	0
+	Child        	ThreatenSwitchOff:	False
+			ConsoleSwitchedOff:	False
+			ChildSocialGoalDominance:	0.0
+			Dominance:  	1.0
+			WorkImportance:	0.25
+			TotalFun:   	0
+			Liking:     	0.0
+			ExercicesDone:	0
+			ChildSocialGoalLiking:	0.0
+			PlayImportance:	0.75
+	Greta        	TeacherSocialGoalLiking:	0.0
+			Dominance:  	1.0
+			Liking:     	0.0
+			TeacherSocialGoalDominance:	0.0
+100%
+Child-Work
+	V(Child-DoNothing) =  9.050
+	V(Child-Play) =  9.400
+	V(Child-Work) =  9.750
+100% 	World        	round:      	1
+	Child        	ThreatenSwitchOff:	False
+			ConsoleSwitchedOff:	False
+			ChildSocialGoalDominance:	0.0
+			Dominance:  	1.0
+			WorkImportance:	0.25
+			TotalFun:   	-1.0
+			Liking:     	0.0
+			ExercicesDone:	1.0
+			ChildSocialGoalLiking:	0.0
+			PlayImportance:	0.75
+	Greta        	TeacherSocialGoalLiking:	0.0
+			Dominance:  	1.0
+			Liking:     	1.0
+			TeacherSocialGoalDominance:	0.0
+100%
+Greta-PromiseToPlay
+	V(Greta-DoNothing) =  9.812
+	V(Greta-PlayWithChild) =  9.812
+	V(Greta-PromiseToPlay) = 10.741
+	V(Greta-RequestWork) =  9.812
+	V(Greta-SwitchOffConsole) =  9.370
+	V(Greta-ThreatenToSwitchOffConsole) =  9.897
+100% 	World        	round:      	2
+	Child        	ThreatenSwitchOff:	False
+			ConsoleSwitchedOff:	False
+			ChildSocialGoalDominance:	0.0
+			Dominance:  	-3.5
+			WorkImportance:	0.25
+			TotalFun:   	-1.0
+			Liking:     	3.75
+			ExercicesDone:	1.0
+			ChildSocialGoalLiking:	0.0
+			PlayImportance:	0.75
+	Greta        	TeacherSocialGoalLiking:	0.0
+			Dominance:  	1.0
+			Liking:     	1.0
+			TeacherSocialGoalDominance:	0.0
+100%
+Child-Work
+	V(Child-Play) = 19.525
+	V(Child-Work) = 21.030
+100% 	World        	round:      	3
+	Child        	ThreatenSwitchOff:	False
+			ConsoleSwitchedOff:	False
+			ChildSocialGoalDominance:	0.0
+			Dominance:  	-3.5
+			WorkImportance:	0.25
+			TotalFun:   	-1.8
+			Liking:     	3.75
+			ExercicesDone:	1.8
+			ChildSocialGoalLiking:	0.0
+			PlayImportance:	0.75
+	Greta        	TeacherSocialGoalLiking:	0.0
+			Dominance:  	1.0
+			Liking:     	1.8
+			TeacherSocialGoalDominance:	0.0
+100%
+Greta-PromiseToPlay
+	V(Greta-DoNothing) = 13.191
+	V(Greta-PlayWithChild) = 13.191
+	V(Greta-PromiseToPlay) = 13.507
+	V(Greta-RequestWork) = 13.191
+	V(Greta-SwitchOffConsole) = 12.652
+	V(Greta-ThreatenToSwitchOffConsole) = 11.988
+100% 	World        	round:      	4
+	Child        	ThreatenSwitchOff:	False
+			ConsoleSwitchedOff:	False
+			ChildSocialGoalDominance:	0.0
+			Dominance:  	-4.625
+			WorkImportance:	0.25
+			TotalFun:   	-1.8
+			Liking:     	4.6875
+			ExercicesDone:	1.8
+			ChildSocialGoalLiking:	0.0
+			PlayImportance:	0.75
+	Greta        	TeacherSocialGoalLiking:	0.0
+			Dominance:  	1.0
+			Liking:     	1.8
+			TeacherSocialGoalDominance:	0.0
+100%
+Child-Work
+	V(Child-Play) = 23.172
+	V(Child-Work) = 24.903
+100% 	World        	round:      	5
+	Child        	ThreatenSwitchOff:	False
+			ConsoleSwitchedOff:	False
+			ChildSocialGoalDominance:	0.0
+			Dominance:  	-4.625
+			WorkImportance:	0.25
+			TotalFun:   	-2.44
+			Liking:     	4.6875
+			ExercicesDone:	2.44
+			ChildSocialGoalLiking:	0.0
+			PlayImportance:	0.75
+	Greta        	TeacherSocialGoalLiking:	0.0
+			Dominance:  	1.0
+			Liking:     	2.44
+			TeacherSocialGoalDominance:	0.0
+100%
+Greta-PromiseToPlay
+	V(Greta-DoNothing) = 15.855
+	V(Greta-PlayWithChild) = 15.855
+	V(Greta-PromiseToPlay) = 15.951
+	V(Greta-RequestWork) = 15.855
+	V(Greta-SwitchOffConsole) = 14.795
+	V(Greta-ThreatenToSwitchOffConsole) = 13.892
+100% 	World        	round:      	6
+	Child        	ThreatenSwitchOff:	False
+			ConsoleSwitchedOff:	False
+			ChildSocialGoalDominance:	0.0
+			Dominance:  	-4.90625
+			WorkImportance:	0.25
+			TotalFun:   	-2.44
+			Liking:     	4.921875
+			ExercicesDone:	2.44
+			ChildSocialGoalLiking:	0.0
+			PlayImportance:	0.75
+	Greta        	TeacherSocialGoalLiking:	0.0
+			Dominance:  	1.0
+			Liking:     	2.44
+			TeacherSocialGoalDominance:	0.0
+100%
+Child-Work
+	V(Child-Play) = 24.888
+	V(Child-Work) = 26.616
+100% 	World        	round:      	7
+	Child        	ThreatenSwitchOff:	False
+			ConsoleSwitchedOff:	False
+			ChildSocialGoalDominance:	0.0
+			Dominance:  	-4.90625
+			WorkImportance:	0.25
+			TotalFun:   	-2.952
+			Liking:     	4.921875
+			ExercicesDone:	2.952
+			ChildSocialGoalLiking:	0.0
+			PlayImportance:	0.75
+	Greta        	TeacherSocialGoalLiking:	0.0
+			Dominance:  	1.0
+			Liking:     	2.952
+			TeacherSocialGoalDominance:	0.0
+100%
+Greta-PromiseToPlay
+	V(Greta-DoNothing) = 17.779
+	V(Greta-PlayWithChild) = 17.779
+	V(Greta-PromiseToPlay) = 17.807
+	V(Greta-RequestWork) = 17.779
+	V(Greta-SwitchOffConsole) = 16.321
+	V(Greta-ThreatenToSwitchOffConsole) = 15.316
+100% 	World        	round:      	8
+	Child        	ThreatenSwitchOff:	False
+			ConsoleSwitchedOff:	False
+			ChildSocialGoalDominance:	0.0
+			Dominance:  	-4.9765625
+			WorkImportance:	0.25
+			TotalFun:   	-2.952
+			Liking:     	4.98046875
+			ExercicesDone:	2.952
+			ChildSocialGoalLiking:	0.0
+			PlayImportance:	0.75
+	Greta        	TeacherSocialGoalLiking:	0.0
+			Dominance:  	1.0
+			Liking:     	2.952
+			TeacherSocialGoalDominance:	0.0
+100%
+Child-Work
+	V(Child-Play) = 25.942
+	V(Child-Work) = 27.622
+100% 	World        	round:      	9
+	Child        	ThreatenSwitchOff:	False
+			ConsoleSwitchedOff:	False
+			ChildSocialGoalDominance:	0.0
+			Dominance:  	-4.9765625
+			WorkImportance:	0.25
+			TotalFun:   	-3.3616
+			Liking:     	4.98046875
+			ExercicesDone:	3.3616
+			ChildSocialGoalLiking:	0.0
+			PlayImportance:	0.75
+	Greta        	TeacherSocialGoalLiking:	0.0
+			Dominance:  	1.0
+			Liking:     	3.3616
+			TeacherSocialGoalDominance:	0.0
+100%
+Greta-PromiseToPlay
+	V(Greta-DoNothing) = 19.251
+	V(Greta-PlayWithChild) = 19.251
+	V(Greta-PromiseToPlay) = 19.259
+	V(Greta-RequestWork) = 19.251
+	V(Greta-SwitchOffConsole) = 17.482
+	V(Greta-ThreatenToSwitchOffConsole) = 16.422
+100% 	World        	round:      	10
+	Child        	ThreatenSwitchOff:	False
+			ConsoleSwitchedOff:	False
+			ChildSocialGoalDominance:	0.0
+			Dominance:  	-4.994140625
+			WorkImportance:	0.25
+			TotalFun:   	-3.3616
+			Liking:     	4.9951171875
+			ExercicesDone:	3.3616
+			ChildSocialGoalLiking:	0.0
+			PlayImportance:	0.75
+	Greta        	TeacherSocialGoalLiking:	0.0
+			Dominance:  	1.0
+			Liking:     	3.3616
+			TeacherSocialGoalDominance:	0.0
+100%
+Child-Work
+	V(Child-Play) = 26.703
+	V(Child-Work) = 28.330
