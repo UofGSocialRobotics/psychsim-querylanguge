@@ -1,0 +1,62 @@
+[
+    {
+        "command": "get action -round 3",
+        "res": "ValueError: max for parameter round is 10\nERROR, cannot execute query: get action -round 345\n",
+        "details": "Gets the action at a specific point in the simulation (round 3)"
+    },
+    {
+        "command": "get action -round 345",
+        "res": "ValueError: max for parameter round is 10\nERROR, cannot execute query: get action -round 345\n",
+        "details": "Informs of an error, specifies that the simulation has only 10 rounds."
+    },
+    {
+        "command": "get actions",
+        "res":"Round 0: Child Work\nRound 1: Greta PromiseToPlay\nRound 2: Child Work\nRound 3: Greta PromiseToPlay\nRound 4: Child Work\nRound 5: Greta PromiseToPlay\nRound 6: Child Work\nRound 7: Greta PromiseToPlay\nRound 8: Child Work\nRound 9: Greta PromiseToPlay\nRound 10: Child Work\n",
+        "details": "Gets all actions in order, specifies who did the action. Basically replays the simulation."
+    },
+    {
+        "command": "get action -agent Child",
+        "res": "Round 0: Child Work\nRound 2: Child Work\nRound 4: Child Work\nRound 6: Child Work\nRound 8: Child Work\nRound 10: Child Work\n",
+        "details": "Gets all the actions of a specific agent."
+    },
+    {
+        "command": "get action -agent Child -round 6",
+        "res": "Round 6: Child Work\n",
+        "details": "Gets the action of a specific agent at a specific round."
+    },
+    {
+        "command": "get action -agent Child -round 5",
+        "res": "ParameterError: agent Child does not do anything at round 5\n",
+        "details": "Informs of an error in the query. specifies that a specific agent did not play at a specific round."
+    },
+    {
+        "command": "get action -turn 6",
+        "res": "ParameterError: unknown parameter turn\nERROR, cannot execute query: get action -turn 6\n",
+        "details": "Informs of an error, specifies that parameter 'turn' does not exist."
+    },
+    {
+        "command": "get action -action Work",
+        "res": "Round 0: Child Work\nRound 2: Child Work\nRound 4: Child Work\nRound 6: Child Work\nRound 8: Child Work\nRound 10: Child Work\n",
+        "details": "Lists details related to a specific action --> when it was played, by who"
+    },
+    {
+        "command": "get actions -agent Child -action Work",
+        "res": "Round 0: Child Work\nRound 2: Child Work\nRound 4: Child Work\nRound 6: Child Work\nRound 8: Child Work\nRound 10: Child Work\n",
+        "details": "Tells when a specific agent did a specific action."
+    },
+    {
+        "command": "get action -agent Greta -action Work",
+        "res": "ParameterError: agent Greta never does action Work\n",
+        "details": "Informs that a specific agent never did a specific action."
+    },
+    {
+        "command": "get action -agent Child -round 6 -action Work",
+        "res": "Round 6: Child Work",
+        "details": "Confirms Child worked at round 6\n"
+    },
+    {
+        "command": "get accions",
+        "res": "QueryError: \"get accions\" command unkonwn",
+        "details": "Informs that the command is unknown\n"
+    }
+]
