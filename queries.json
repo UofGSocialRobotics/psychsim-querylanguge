@@ -1,7 +1,7 @@
 [
     {
         "command": "get action -round 3",
-        "res": "ValueError: max for parameter round is 10\nERROR, cannot execute query: get action -round 345\n",
+        "res": "Round 3: Greta PromiseToPlay\n",
         "details": "Gets the action at a specific point in the simulation (round 3)"
     },
     {
@@ -10,9 +10,14 @@
         "details": "Informs of an error, specifies that the simulation has only 10 rounds."
     },
     {
-        "command": "get actions",
+        "command": "replay",
         "res":"Round 0: Child Work\nRound 1: Greta PromiseToPlay\nRound 2: Child Work\nRound 3: Greta PromiseToPlay\nRound 4: Child Work\nRound 5: Greta PromiseToPlay\nRound 6: Child Work\nRound 7: Greta PromiseToPlay\nRound 8: Child Work\nRound 9: Greta PromiseToPlay\nRound 10: Child Work\n",
-        "details": "Gets all actions in order, specifies who did the action. Basically replays the simulation."
+        "details": "Replays the simulation: at each turn, which agent did what."
+    },
+    {
+        "command": "get actions",
+        "res":"All the different actions that are played during the simulation are:\nWork, PromiseToPlay\n",
+        "details": "Gets all actions that were played during the simulation."
     },
     {
         "command": "get action -agent Child",
@@ -58,5 +63,15 @@
         "command": "get accions",
         "res": "QueryError: \"get accions\" command unkonwn",
         "details": "Informs that the command is unknown\n"
+    },
+    {
+        "command": "get agents",
+        "res": "All the agents who do at least one action during the simulation are:\nChild, Greta",
+        "details": "NA\n"
+    },
+    {
+        "command": "get utility -round 5\n",
+        "res":"Greta-PromiseToPlay               15.951\nGreta-PlayWithChild               15.855\nGreta-DoNothing                   15.855\nGreta-RequestWork                 15.855\nGreta-SwitchOffConsole            14.795\nGreta-ThreatenToSwitchOffConsole  13.892\n",
+        "details": "Print the utilities of all the actions the agent could have done, as computed by the agent. Round parameter is required."
     }
 ]

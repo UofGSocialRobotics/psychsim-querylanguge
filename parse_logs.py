@@ -3,6 +3,8 @@ import consts
 import json
 from StringIO import StringIO
 import argparse
+from termcolor import colored
+import helper_functions as helper
 
 def get_ints(s):
     return [int(s) for s in str.split(" ") if s.isdigit()]
@@ -15,6 +17,12 @@ def preprocess(s):
 
 
 class LogParser:
+
+
+    ############################################################################################################
+    ##                       Initialisation: arsing log and saving info to answer queries                     ##
+    ############################################################################################################
+
 
     def __init__(self, filename):
         self.actions = dict()
@@ -63,6 +71,9 @@ class LogParser:
         if not self.is_known(agent):
             self.agents_list.append(agent)
 
+    def parse_utility(self, log_line):
+        return helper.string_between_parentheses(log_line), helper.extract_floats(log_line)[0]
+
     def parse_log(self, filepath=None, buffer=None):
         round = 0
         if not filepath:
@@ -73,7 +84,9 @@ class LogParser:
                 line = fp.readline()
                 round = self.update_round(current_round=round, line=line)
                 if line and line[0] == "\t":
-                    pass
+                    if line[:3] == "\tV(":
+                        action, utility = self.parse_utility(line)
+                        self.actions[round][consts.UTILITIES][action] = utility
                 else:
                     if line[0:4] == "100%":
                         pass
@@ -88,11 +101,14 @@ class LogParser:
                             self.actions[round] = dict()
                             self.actions[round][consts.AGENT] = agent
                             self.actions[round][consts.ACTION] = action
-
+                            self.actions[round][consts.UTILITIES] = dict()
 
         self.n_rounds = round
         print(self.n_rounds, self.actions)
 
+    ############################################################################################################
+    ##                            Reading, understanding and executing user command                           ##
+    ############################################################################################################
 
     def get_command(self, query):
         self.command = ' '.join(query.split()[:2])
@@ -162,30 +178,41 @@ class LogParser:
     def execute_query(self, query, buffer=None):
         if self.parse_query(query, buffer=buffer):
             if self.command in consts.COMMANDS_GET_ACTIONS:
-                self.get_actions(p_agent=self.query_param[consts.AGENT],
-                                 p_turn=int(self.query_param[consts.ROUND]),
-                                 p_action=self.query_param[consts.ACTION],
-                                 buffer=buffer)
+                self.get_actions(p_agent=self.query_param[consts.AGENT], r_round=int(self.query_param[consts.ROUND]), p_action=self.query_param[consts.ACTION], buffer=buffer)
+            elif self.command in consts.COMMAND_REPLAY_SIM:
+                self.replay_simulation(buffer=buffer)
+            elif self.command in consts.COMMAND_GET_AGENTS:
+                self.get_agents(p_agent=self.query_param[consts.AGENT], r_round=int(self.query_param[consts.ROUND]), p_action=self.query_param[consts.ACTION], buffer=buffer)
+            elif self.command in consts.COMMAND_GET_UTILITIES:
+                self.get_utilities(p_round=int(self.query_param[consts.ROUND]), buffer=buffer)
             else:
                 print >> buffer, "QueryError: \"%s\" command unkonwn" % self.command
         else:
             print >> buffer, "ERROR, cannot execute query: %s" % query
             return False
 
+    ############################################################################################################
+    ##                                     Loop: read and execute commands                                    ##
+    ############################################################################################################
 
     def query_log(self):
         q= False
-        print("Ready to query log. Use q to quit.")
+        print(colored("Ready to query log. Use q to quit and h for help.", "red"))
         while(not q):
-            query = raw_input("Query: ")
+            query = raw_input(colored("Query: ", "red"))
             if query == 'q':
                 q = True
+            elif query == 'h':
+                print_help()
             else:
                 self.execute_query(preprocess(query))
 
     ############################################################################################################
-    ##                                              Commands                                                  ##
+    ##                                              COMMANDS                                                  ##
     ############################################################################################################
+
+
+    ## --------------------------------              What happened           -------------------------------- ##
 
     def get_all_actions_of_agent(self, agent):
         return [d[consts.ACTION] for d in self.actions.values() if d[consts.AGENT] == agent]
@@ -193,16 +220,19 @@ class LogParser:
     def print_info(self, turn, agent, action, buffer=None):
         print >> buffer, "%s %d: %s %s" % (consts.ROUND.title(), turn, agent, action)
 
-    def get_actions(self, p_agent=None, p_turn=-1, p_action=None, buffer=None):
-        if p_turn > -1:
-            agent, action = self.actions[p_turn][consts.AGENT], self.actions[p_turn][consts.ACTION]
+    def get_actions(self, p_agent=None, r_round=-1, p_action=None, buffer=None):
+        if (not p_action and not p_agent and r_round == -1):
+            return self.get_all_actions_played(buffer=buffer)
+
+        if r_round > -1:
+            agent, action = self.actions[r_round][consts.AGENT], self.actions[r_round][consts.ACTION]
             if p_agent and p_agent != agent:
-                print >> buffer, "ParameterError: agent %s does not do anything at %s %d" % (p_agent, consts.ROUND, p_turn)
+                print >> buffer, "ParameterError: agent %s does not do anything at %s %d" % (p_agent, consts.ROUND, r_round)
                 return False
             if p_action and p_action != action:
-                print >> buffer, "ParameterError: action %s is not played at %s %d" % (p_agent, consts.ROUND, p_turn)
+                print >> buffer, "ParameterError: action %s is not played at %s %d" % (p_agent, consts.ROUND, r_round)
                 return False
-            self.print_info(p_turn, agent, action, buffer=buffer)
+            self.print_info(r_round, agent, action, buffer=buffer)
             return True
 
         bool_got_res = False
@@ -215,6 +245,86 @@ class LogParser:
                 self.print_info(t, agent, action, buffer=buffer)
         if not bool_got_res:
             print >> buffer, "ParameterError: agent %s never does action %s" % (p_agent, p_action)
+
+
+    def replay_simulation(self, buffer=None):
+        for t, d in self.actions.items():
+            agent, action = d[consts.AGENT], d[consts.ACTION]
+            self.print_info(t, agent, action, buffer=buffer)
+        return True
+
+
+    def get_all_actions_played(self, buffer=None):
+        print >> buffer, "All the different actions that are played during the simulation are:\n%s" % ", ".join(self.actions_list)
+        return True
+
+
+    def get_all_agents(self, buffer=None):
+        print >> buffer, "All the agents who do at least one action during the simulation are:\n%s" % ", ".join(self.agents_list)
+        return True
+
+
+    def get_agents(self, p_agent=None, r_round=-1, p_action=None, buffer=None):
+        if (p_agent or p_action or r_round != -1):
+            return self.get_actions(p_agent,r_round,p_action,buffer)
+        else:
+            return self.get_all_agents(buffer=buffer)
+
+
+
+    ## --------------------------------       Why it happened         -------------------------------- ##
+
+    def get_utilities(self, p_round, buffer=None):
+        if p_round == -1 :
+            print >> buffer, "ParameterError: missing argument -round"
+            return False
+        sorted_actions = list(reversed(helper.sort_dic_by_values(self.actions[p_round][consts.UTILITIES])))
+        # print(sorted_actions)
+        actions = [k for k,v in sorted_actions]
+        longest_str = max(actions, key=len)
+        max_len = len(longest_str) + 2
+        for a, u in sorted_actions:
+            print >> buffer, helper.add_space_at_end(a,max_len-len(a)) + u
+        return True
+
+
+
+
+############################################################################################################
+##                                              GENERAL METHODS                                           ##
+############################################################################################################
+
+
+
+def print_help():
+    print(colored("Commands - optional arguments are between []", "yellow"))
+    for c_list, c_desc in consts.HELP[consts.commands].items():
+        s = c_list[0]
+        for arg in c_desc[consts.parameters]:
+            name, optional = arg[consts.name], arg[consts.optional]
+            optional_open = "[" if optional else ""
+            optional_close = "]" if optional else ""
+            s += " "+optional_open+"-" + arg[consts.name] + optional_close
+        print(s)
+        print(c_desc[consts.description]+"\n")
+
+    print(colored("Arguments", "yellow"))
+    args = consts.HELP[consts.parameters].keys()
+    longest_str = max(args, key=len)
+    max_len = len(longest_str) + 2
+    f = '{:>%d}' % max_len
+    for arg, arg_desc in consts.HELP[consts.parameters].items():
+        s = helper.add_space_at_end(arg, max_len-len(arg))
+        s += arg_desc[consts.value_type]
+        print(s)
+        s = helper.add_space_at_end("", max_len)
+        s += arg_desc[consts.description]
+        print(s)
+
+    print("\n")
+
+
+
 
 
 

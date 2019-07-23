@@ -322,18 +322,14 @@ class AAMAS:
             childLikingImportance = (self.world.getValue(stateKey('Child', 'Liking')) + self.world.getValue(
                 stateKey('Child', 'ChildSocialGoalLiking'))) / 2
 
-            teacherDominanceImportance = (self.world.getValue(stateKey('Greta', 'Dominance')) + self.world.getValue(
-                stateKey('Greta', 'TeacherSocialGoalDominance'))) / 2
-            childDominanceImportance = (self.world.getValue(stateKey('Child', 'Dominance')) + self.world.getValue(
-                stateKey('Child', 'ChildSocialGoalDominance'))) / 2
+            teacherDominanceImportance = (self.world.getValue(stateKey('Greta', 'Dominance')) + self.world.getValue(stateKey('Greta', 'TeacherSocialGoalDominance'))) / 2
+            childDominanceImportance = (self.world.getValue(stateKey('Child', 'Dominance')) + self.world.getValue(stateKey('Child', 'ChildSocialGoalDominance'))) / 2
 
             self.world.agents['Greta'].setReward(maximizeFeature(stateKey('Child', 'Liking')), teacherLikingImportance)
             self.world.agents['Child'].setReward(maximizeFeature(stateKey('Greta', 'Liking')), childLikingImportance)
 
-            self.world.agents['Greta'].setReward(minimizeFeature(stateKey('Child', 'Dominance')),
-                                                 teacherDominanceImportance)
-            self.world.agents['Child'].setReward(minimizeFeature(stateKey('Greta', 'Dominance')),
-                                                 childDominanceImportance)
+            self.world.agents['Greta'].setReward(minimizeFeature(stateKey('Child', 'Dominance')), teacherDominanceImportance)
+            self.world.agents['Child'].setReward(minimizeFeature(stateKey('Greta', 'Dominance')), childDominanceImportance)
 
             self.world.printState(buf=output)
 
