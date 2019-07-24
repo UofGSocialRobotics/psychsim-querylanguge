@@ -1164,7 +1164,7 @@ class World:
                 # self.lucile += 1
             V = decision['V'][alt]
             print >> buf,'%s\tV(%s) = %6.3f' % (prefix,alt,V['__EV__'])
-            print('%s\tV(%s) = %6.3f' % (prefix,alt,V['__EV__']))
+            # print('%s\tV(%s) = %6.3f' % (prefix,alt,V['__EV__']))
             # psychlogs.log.info('%s\tV(%s) = %6.3f' % (prefix,alt,V['__EV__']))
             if level > 2:
                 # Explain lookahead
@@ -1189,7 +1189,7 @@ class World:
                         # print("lucile")
                         n_tabs = helper.count_tabs_at_beginning_of_line(tab+"v")
                         n_tabs_prefix = helper.count_tabs_at_beginning_of_line(prefix+"v")
-                        print('%s%s (V_%s=%6.3f) [P=%d%%] t=%d n_tabs=%d, n_tabs_prefix=%d' % (tab,ActionSet(node['actions']),V[state]['agent'],node['R'],node['probability']*100., t, n_tabs, n_tabs_prefix))
+                        # print('%s%s (V_%s=%6.3f) [P=%d%%] t=%d n_tabs=%d, n_tabs_prefix=%d' % (tab,ActionSet(node['actions']),V[state]['agent'],node['R'],node['probability']*100., t, n_tabs, n_tabs_prefix))
                         print >> buf,'%s%s (V_%s=%6.3f) [P=%d%%]' % (tab,ActionSet(node['actions']),V[state]['agent'],node['R'],node['probability']*100.)
                         for other in node['decisions'].keys():
                             # print("changes lucile")
