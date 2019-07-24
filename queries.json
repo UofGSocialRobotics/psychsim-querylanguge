@@ -71,7 +71,7 @@
     },
     {
         "command": "get utility -round 5\n",
-        "res":"Greta-PromiseToPlay               15.951\nGreta-PlayWithChild               15.855\nGreta-DoNothing                   15.855\nGreta-RequestWork                 15.855\nGreta-SwitchOffConsole            14.795\nGreta-ThreatenToSwitchOffConsole  13.892\n",
+        "res":"Greta-PromiseToPlay 15.951 Greta-PlayWithChild 15.872 Greta-RequestWork 15.855 Greta-DoNothing 15.855 Greta-SwitchOffConsole 14.897 Greta-ThreatenToSwitchOffConsole 13.892\n",
         "details": "Print the utilities of all the actions the agent could have done, as computed by the agent. Round parameter is required."
     }
 ]

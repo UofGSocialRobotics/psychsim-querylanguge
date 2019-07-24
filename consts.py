@@ -17,7 +17,7 @@ COMMAND_REPLAY_SIM = "replay simulation", "replay sim", "replay"
 COMMAND_GET_AGENTS = "get agent", "get agents"
 COMMAND_GET_UTILITIES = "get utilities", "get utility"
 
-COMMAND_PROJECTION_FULL = "projection full"
+COMMAND_PROJECTION_FULL = "projection full", "proj full"
 
 HELP = {
     commands: {
@@ -31,7 +31,7 @@ HELP = {
                  optional: True},
                 {name: AGENT,
                  optional: True},
-                {name:ACTION,
+                {name: ACTION,
                  optional:True}
             ]
         },
@@ -51,7 +51,14 @@ HELP = {
                 {name: ROUND,
                  optional: False}
             ],
-            description: "Returns the utilities of all possible actions as computed by the agent."
+            description: "For the specified round, prints the utilities of all possible actions as computed by the agent."
+        },
+        COMMAND_PROJECTION_FULL: {
+            parameters: [
+                {name: ROUND,
+                 optional: False}
+            ],
+            description: "For the specified round, prints the full projection tree as computed by the agent."
         }
     },
     parameters: {

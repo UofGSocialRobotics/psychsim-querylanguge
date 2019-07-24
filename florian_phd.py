@@ -311,7 +311,7 @@ class AAMAS:
     def runit(self, Msg):
 
         print(Msg)
-        self.maxRounds = 0
+        # self.maxRounds = 0
         for t in range(self.maxRounds + 1):
             # print("Round %d"%t)
 
@@ -334,7 +334,7 @@ class AAMAS:
             self.world.printState(buf=output)
 
             # self.world.explain(self.world.step(), level=2)
-            self.world.explain(self.world.step(), level=5, buf=output)
+            self.world.explain(self.world.step(), level=3, buf=output)
             # print("output val")
             # print(output.getvalue())
             # print("after output val")

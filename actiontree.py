@@ -15,15 +15,15 @@ def next_action_str(node):
 
 
 
-def print_tree(root):
-    s_next_action = actiontree.next_action_str(root)
+def print_tree(root, buffer=None):
+    s_next_action = next_action_str(root)
     # print("%s %s" % (root.name, s_next_action))
     for pre, _, node in anytree.RenderTree(root):
-        s_next_action = actiontree.next_action_str(node)
+        s_next_action = next_action_str(node)
         if node.V:
             V = "V=%.3f" % node.V
         elif node.V_for_agent:
             V = "V_%s=%.3f" % (node.V_for_agent[0], node.V_for_agent[1])
         else:
             V = ""
-        print("%s%s %s model=%s %s" %(pre, node.name, V, node.model, s_next_action))
+        print >> buffer, "%s%s %s model=%s %s" %(pre, node.name, V, node.model, s_next_action)

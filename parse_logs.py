@@ -116,7 +116,6 @@ class LogParser:
                 if new_round != round:
                     round = new_round
                     last_node_of_depth = dict()
-                    print("new round")
                 n_tabs = helper.count_tabs_at_beginning_of_line(line)
 
 
@@ -170,9 +169,8 @@ class LogParser:
 
 
         self.n_rounds = round
-        print(self.n_rounds)
+        # print(self.n_rounds)
         print(self.actions)
-        # print(anytree.RenderTree(last_node_of_depth[0]))
         root = last_node_of_depth[0]
         # actiontree.print_tree(root)
 
@@ -258,6 +256,8 @@ class LogParser:
                 self.get_agents(p_agent=self.query_param[consts.AGENT], r_round=int(self.query_param[consts.ROUND]), p_action=self.query_param[consts.ACTION], buffer=buffer)
             elif self.command in consts.COMMAND_GET_UTILITIES:
                 self.get_utilities(p_round=int(self.query_param[consts.ROUND]), buffer=buffer)
+            elif self.command in consts.COMMAND_PROJECTION_FULL:
+                self.full_projection(p_round=int(self.query_param[consts.ROUND]), buffer=buffer)
             else:
                 print >> buffer, "QueryError: \"%s\" command unkonwn" % self.command
         else:
@@ -362,6 +362,13 @@ class LogParser:
             print >> buffer, helper.add_space_at_end(a,max_len-len(a)) + u.__str__()
         return True
 
+
+    def full_projection(self, p_round, buffer=None):
+        if p_round == -1 :
+            print >> buffer, "ParameterError: missing argument -round"
+            return False
+        actiontree.print_tree(self.actions[p_round][consts.PROJECTION], buffer)
+        return True
 
 
 
