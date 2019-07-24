@@ -1196,7 +1196,7 @@ class World:
                             if t % 2 == 0:
                                 new_prefix = prefix+'\t\t\t'
                             else:
-                                new_prefix = prefix+'\t\t\t'
+                                new_prefix = prefix+'\t\t\t\t'
                             self.explainDecision(node['decisions'][other],buf,level,new_prefix)
                         if level > 3: 
                             print >> buf,'%sEffect:' % (tab+prefix)

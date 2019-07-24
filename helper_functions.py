@@ -23,6 +23,9 @@ def count_tabs_at_beginning_of_line(s):
         else:
             return n_tabs
 
+def sort_list_of_tuples_by_second_param(l):
+    l.sort(key=lambda x: x[1])
+    return list(reversed(l))
 
 def child_with_this_name_exists(node, child_name):
     for child in node.children:

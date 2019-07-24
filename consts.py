@@ -17,6 +17,8 @@ COMMAND_REPLAY_SIM = "replay simulation", "replay sim", "replay"
 COMMAND_GET_AGENTS = "get agent", "get agents"
 COMMAND_GET_UTILITIES = "get utilities", "get utility"
 
+COMMAND_PROJECTION_FULL = "projection full"
+
 HELP = {
     commands: {
         COMMAND_REPLAY_SIM: {

@@ -103,13 +103,14 @@ class LogParser:
     def parse_log(self, filepath=None, buffer=None):
         last_node = None
         round = -1
+        model = None
         if not filepath:
             filepath = self.filename
         with open(filepath) as fp:
             lines = fp.readlines()
             for i, line in enumerate(lines):
-                print(i)
-                print(line)
+                # print(i)
+                # print(line)
 
                 new_round = self.update_round(current_round=round, line=line)
                 if new_round != round:
@@ -135,37 +136,24 @@ class LogParser:
                             self.actions[round] = dict()
                             self.actions[round][consts.AGENT] = agent
                             self.actions[round][consts.ACTION] = action
-                            # self.actions[round][consts.UTILITIES] = dict()
-                            # self.actions[round][consts.PROJECTION] = dict()
-                            # root = anytree.None(agentdoesaction, agent=agent, action=action)
-                            root = actiontree.create_action_node(agentdoesaction, parent=None, agent=agent, action=action, type="root")
+                            root = actiontree.create_action_node(agentdoesaction, parent=None, agent=agent, action=action, model=model)
                             self.actions[round][consts.PROJECTION] = root
-                            # last_node_of_depth[0].name = "ROOT_"+agentdoesaction
                             last_node_of_depth[0] = root
-                            print("initiated last_node_of_depth[0])")
-                            print(last_node_of_depth[0])
-                            # self.actions[round][consts.PROJECTION][action] = last_node_of_depth[0]
-                            # new_node = anytree.Node(agentdoesaction, agent=agent, action=action, parent=last_node)
-                            # self.actions[round+100] = new_node
-                            # last_node = new_node
+                            # print("initiated last_node_of_depth[0])")
+                            # print(last_node_of_depth[0])
 
 
                 elif "__model__" in line:
                     model = self.parse_model(line)
 
 
-                # elif n_tabs == 1:
-                #     if line[:3] == "\tV(":
-                #
-                #         ## Utility of what the agent actually does
-                #         action, utility = self.parse_utility(line)
-                #         self.actions[round][consts.UTILITIES][action] = utility
-                #         # last_node.utility = utility
-                ## Read utility and create new action
                 elif "V(" in line:
                     agentdoesaction, utility = self.parse_utility(line)
                     agent, action = self.who_does_what(agentdoesaction, buffer=buffer)
-                    new_node = actiontree.create_action_node(agent+"-"+action, parent=last_node_of_depth[n_tabs-1], action=action, agent=agent, V=utility, type="explanation")
+                    parent = last_node_of_depth[n_tabs-1]
+                    new_node = actiontree.create_action_node(agent+"-"+action, parent=parent, action=action, agent=agent, model=model, V=float(utility))
+                    if n_tabs == 1 and parent.name == agentdoesaction :
+                        parent.next_action = new_node
                     last_node_of_depth[n_tabs] = new_node
 
 
@@ -173,23 +161,23 @@ class LogParser:
                     agent, action, u, u_for = self.parse_projection_action_utility_line(line)
                     agentdoesaction = agent+'-'+action
                     parent = last_node_of_depth[n_tabs-1]
-                    # existing_node = actiontree.get_child(parent, child_name=agentdoesaction)
-                    # if existing_node:
-                    #     existing_node.V_for_agent = (u_for, u)
-                    # else:
-                    new_node = actiontree.create_action_node(agentdoesaction, parent=parent, action=action, agent=agent, type="next_action", V_for_agent=(u_for,u))
-                    # parent.next_action = new_node
+                    new_node = actiontree.create_action_node(agentdoesaction, parent=parent, action=action, agent=agent, model=model, V_for_agent=(u_for,u))
                     last_node_of_depth[n_tabs] = new_node
-
-                print(last_node_of_depth)
+                    if parent.agent != agent :
+                        parent.next_action = new_node
+                # print(last_node_of_depth)
 
 
 
         self.n_rounds = round
         print(self.n_rounds)
         print(self.actions)
-        print("render tree")
-        print(anytree.RenderTree(last_node_of_depth[0]))
+        # print(anytree.RenderTree(last_node_of_depth[0]))
+        root = last_node_of_depth[0]
+        # actiontree.print_tree(root)
+
+
+
 
     ############################################################################################################
     ##                            Reading, understanding and executing user command                           ##
@@ -363,13 +351,15 @@ class LogParser:
         if p_round == -1 :
             print >> buffer, "ParameterError: missing argument -round"
             return False
-        sorted_actions = list(reversed(helper.sort_dic_by_values(self.actions[p_round][consts.UTILITIES])))
-        # print(sorted_actions)
-        actions = [k for k,v in sorted_actions]
+        # sorted_actions = list(reversed(helper.sort_dic_by_values(self.actions[p_round][consts.UTILITIES])))
+        l = [(child.name, child.V) for child in self.actions[p_round][consts.PROJECTION].children]
+        l_sorted = helper.sort_list_of_tuples_by_second_param(l)
+        # print(l_sorted)
+        actions = [k for k,v in l_sorted]
         longest_str = max(actions, key=len)
         max_len = len(longest_str) + 2
-        for a, u in sorted_actions:
-            print >> buffer, helper.add_space_at_end(a,max_len-len(a)) + u
+        for a, u in l_sorted:
+            print >> buffer, helper.add_space_at_end(a,max_len-len(a)) + u.__str__()
         return True
 
 

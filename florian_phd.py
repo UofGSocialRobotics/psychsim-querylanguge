@@ -334,7 +334,7 @@ class AAMAS:
             self.world.printState(buf=output)
 
             # self.world.explain(self.world.step(), level=2)
-            self.world.explain(self.world.step(), level=3, buf=output)
+            self.world.explain(self.world.step(), level=5, buf=output)
             # print("output val")
             # print(output.getvalue())
             # print("after output val")

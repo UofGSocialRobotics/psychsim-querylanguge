@@ -16,281 +16,4103 @@
 100%
 Child-Work
 	V(Child-DoNothing) =  9.050
+		State:
+			World        	round:      	0
+			Child        	ThreatenSwitchOff:	False
+					WorkImportance:	0.25
+					TotalFun:   	0
+					PlayImportance:	0.75
+					ExercicesDone:	0
+					ChildSocialGoalLiking:	0.0
+					ChildSocialGoalDominance:	0.0
+					ConsoleSwitchedOff:	False
+					Liking:     	0.0
+					Dominance:  	1.0
+			Greta        	TeacherSocialGoalDominance:	0.0
+					Liking:     	0.0
+					Dominance:  	1.0
+					TeacherSocialGoalLiking:	0.0
+	             			__model__   	DominantSmartGretaCaresLiking
+					R		3.8 Child's ExercicesDone: 1.0
 		Child-DoNothing (V_Child= 2.200) [P=100%]
+		Effect:
+		100% 			Unchanged
+			State:
+				World        	round:      	0
+				Child        	ThreatenSwitchOff:	False
+						WorkImportance:	0.25
+						TotalFun:   	0
+						PlayImportance:	0.75
+						ExercicesDone:	0
+						ChildSocialGoalLiking:	0.0
+						ChildSocialGoalDominance:	0.0
+						ConsoleSwitchedOff:	False
+						Liking:     	0.0
+						Dominance:  	1.0
+				Greta        	TeacherSocialGoalDominance:	0.0
+						Liking:     	0.0
+						Dominance:  	1.0
+						TeacherSocialGoalLiking:	0.0
+	             				__model__   	DominantSmartGretaCaresLiking
+						R		3.8 Child's ExercicesDone: 1.0
 			Greta-RequestWork (V_Child= 2.200) [P=100%]
 				V(Greta-DoNothing) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	0.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresLiking
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-DoNothing (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 									Unchanged
 				V(Greta-PlayWithChild) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	0.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresLiking
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-PlayWithChild (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 	Child        	TotalFun:   	1.0
+											Liking:     	1.0
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	1.0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	1.0
+									Dominance:  	1.0
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	0.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.250) [P=100%]
 							V(Child-DoNothing) =  5.250
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	1.0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	1.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	0.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-DoNothing (V_Child= 2.625) [P=100%]
+														Effect:
+														100% 															Unchanged
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	1.0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	1.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	0.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-DoNothing (V_Child= 2.625) [P=100%]
+														Effect:
+														100% 															Unchanged
 							V(Child-Play) =  5.350
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	1.0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	1.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	0.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 2.725) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	1.8
+															Greta        	Liking:     	-1.5
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	1.0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	1.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	0.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 2.725) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	1.8
+															Greta        	Liking:     	-1.5
 							V(Child-Work) =  5.475
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	1.0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	1.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	0.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 2.850) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	-0.2
+																	ExercicesDone:	1.0
+															Greta        	Liking:     	1.0
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	1.0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	1.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	0.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 2.850) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	-0.2
+																	ExercicesDone:	1.0
+															Greta        	Liking:     	1.0
+									Effect:
+									100% 	Child        	TotalFun:   	-0.2
+												ExercicesDone:	1.0
+										Greta        	Liking:     	1.0
 				V(Greta-PromiseToPlay) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	0.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresLiking
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-PromiseToPlay (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 	Child        	Liking:     	3.75
+											Dominance:  	-3.5
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	3.75
+									Dominance:  	-3.5
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	0.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.250) [P=100%]
 							V(Child-Play) =  5.125
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	0.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 2.625) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	1.0
+															Greta        	Liking:     	-1.5
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	0.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 2.625) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	1.0
+															Greta        	Liking:     	-1.5
 							V(Child-Work) =  5.250
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	0.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 2.750) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	-1.0
+																	ExercicesDone:	1.0
+															Greta        	Liking:     	1.0
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	0.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 2.750) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	-1.0
+																	ExercicesDone:	1.0
+															Greta        	Liking:     	1.0
+									Effect:
+									100% 	Child        	TotalFun:   	-1.0
+												ExercicesDone:	1.0
+										Greta        	Liking:     	1.0
 				V(Greta-RequestWork) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	0.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresLiking
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-RequestWork (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 									Unchanged
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	0.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.250) [P=100%]
 							V(Child-DoNothing) =  5.000
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	0.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	0.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-DoNothing (V_Child= 2.500) [P=100%]
+														Effect:
+														100% 															Unchanged
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	0.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	0.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-DoNothing (V_Child= 2.500) [P=100%]
+														Effect:
+														100% 															Unchanged
 							V(Child-Play) =  5.125
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	0.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	0.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 2.625) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	1.0
+															Greta        	Liking:     	-1.5
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	0.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	0.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 2.625) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	1.0
+															Greta        	Liking:     	-1.5
 							V(Child-Work) =  5.250
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	0.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	0.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 2.750) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	-1.0
+																	ExercicesDone:	1.0
+															Greta        	Liking:     	1.0
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	0.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	0.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 2.750) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	-1.0
+																	ExercicesDone:	1.0
+															Greta        	Liking:     	1.0
+									Effect:
+									100% 	Child        	TotalFun:   	-1.0
+												ExercicesDone:	1.0
+										Greta        	Liking:     	1.0
 				V(Greta-SwitchOffConsole) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	0.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresLiking
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-SwitchOffConsole (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 	Child        	ConsoleSwitchedOff:	True
+											Liking:     	-2.0
+											Dominance:  	-0.8
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	True
+									Liking:     	-2.0
+									Dominance:  	-0.8
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	0.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.250) [P=100%]
+									Effect:
+									100% 	Child        	TotalFun:   	-1.0
+												ExercicesDone:	1.0
+										Greta        	Liking:     	1.0
 				V(Greta-ThreatenToSwitchOffConsole) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	0.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresLiking
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-ThreatenToSwitchOffConsole (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 	Child        	ThreatenSwitchOff:	True
+											Liking:     	-3.75
+											Dominance:  	-3.5
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	True
+									WorkImportance:	0.25
+									TotalFun:   	0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	-3.75
+									Dominance:  	-3.5
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	0.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.250) [P=100%]
 							V(Child-Play) =  5.125
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	True
+											WorkImportance:	0.25
+											TotalFun:   	0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	-3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	0.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 2.625) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	1.0
+															Greta        	Liking:     	-1.5
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	True
+											WorkImportance:	0.25
+											TotalFun:   	0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	-3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	0.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 2.625) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	1.0
+															Greta        	Liking:     	-1.5
 							V(Child-Work) =  5.250
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	True
+											WorkImportance:	0.25
+											TotalFun:   	0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	-3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	0.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 2.750) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	-1.0
+																	ExercicesDone:	1.0
+															Greta        	Liking:     	1.0
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	True
+											WorkImportance:	0.25
+											TotalFun:   	0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	-3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	0.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 2.750) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	-1.0
+																	ExercicesDone:	1.0
+															Greta        	Liking:     	1.0
+									Effect:
+									100% 	Child        	TotalFun:   	-1.0
+												ExercicesDone:	1.0
+										Greta        	Liking:     	1.0
+			Effect:
+			100% 				Unchanged
+				State:
+					World        	round:      	0
+					Child        	ThreatenSwitchOff:	False
+							WorkImportance:	0.25
+							TotalFun:   	0
+							PlayImportance:	0.75
+							ExercicesDone:	0
+							ChildSocialGoalLiking:	0.0
+							ChildSocialGoalDominance:	0.0
+							ConsoleSwitchedOff:	False
+							Liking:     	0.0
+							Dominance:  	1.0
+					Greta        	TeacherSocialGoalDominance:	0.0
+							Liking:     	0.0
+							Dominance:  	1.0
+							TeacherSocialGoalLiking:	0.0
+	             					__model__   	DominantSmartGretaCaresLiking
+							R		3.8 Child's ExercicesDone: 1.0
 				Child-Work (V_Child= 2.450) [P=100%]
-				V(Child-DoNothing) =  4.400
-					Child-DoNothing (V_Child= 2.200) [P=100%]
-					Child-DoNothing (V_Child= 2.200) [P=100%]
-				V(Child-Play) =  4.525
-					Child-Play (V_Child= 2.325) [P=100%]
-					Child-Play (V_Child= 2.325) [P=100%]
-				V(Child-Work) =  4.650
-					Child-Work (V_Child= 2.450) [P=100%]
-					Child-Work (V_Child= 2.450) [P=100%]
+					V(Child-DoNothing) =  4.400
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	0.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
+						Child-DoNothing (V_Child= 2.200) [P=100%]
+										Effect:
+										100% 											Unchanged
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	0.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
+						Child-DoNothing (V_Child= 2.200) [P=100%]
+										Effect:
+										100% 											Unchanged
+					V(Child-Play) =  4.525
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	0.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
+						Child-Play (V_Child= 2.325) [P=100%]
+										Effect:
+										100% 	Child        	TotalFun:   	1.0
+											Greta        	Liking:     	-1.5
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	0.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
+						Child-Play (V_Child= 2.325) [P=100%]
+										Effect:
+										100% 	Child        	TotalFun:   	1.0
+											Greta        	Liking:     	-1.5
+					V(Child-Work) =  4.650
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	0.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
+						Child-Work (V_Child= 2.450) [P=100%]
+										Effect:
+										100% 	Child        	TotalFun:   	-1.0
+													ExercicesDone:	1.0
+											Greta        	Liking:     	1.0
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	0.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
+						Child-Work (V_Child= 2.450) [P=100%]
+										Effect:
+										100% 	Child        	TotalFun:   	-1.0
+													ExercicesDone:	1.0
+											Greta        	Liking:     	1.0
+				Effect:
+				100% 	Child        	TotalFun:   	-1.0
+							ExercicesDone:	1.0
+					Greta        	Liking:     	1.0
+		State:
+			World        	round:      	0
+			Child        	ThreatenSwitchOff:	False
+					WorkImportance:	0.25
+					TotalFun:   	0
+					PlayImportance:	0.75
+					ExercicesDone:	0
+					ChildSocialGoalLiking:	0.0
+					ChildSocialGoalDominance:	0.0
+					ConsoleSwitchedOff:	False
+					Liking:     	0.0
+					Dominance:  	1.0
+			Greta        	TeacherSocialGoalDominance:	0.0
+					Liking:     	0.0
+					Dominance:  	1.0
+					TeacherSocialGoalLiking:	0.0
+	             			__model__   	DominantSmartGretaCaresNothing
+					R		3.8 Child's ExercicesDone: 1.0
 		Child-DoNothing (V_Child= 2.200) [P=100%]
+		Effect:
+		100% 			Unchanged
+			State:
+				World        	round:      	0
+				Child        	ThreatenSwitchOff:	False
+						WorkImportance:	0.25
+						TotalFun:   	0
+						PlayImportance:	0.75
+						ExercicesDone:	0
+						ChildSocialGoalLiking:	0.0
+						ChildSocialGoalDominance:	0.0
+						ConsoleSwitchedOff:	False
+						Liking:     	0.0
+						Dominance:  	1.0
+				Greta        	TeacherSocialGoalDominance:	0.0
+						Liking:     	0.0
+						Dominance:  	1.0
+						TeacherSocialGoalLiking:	0.0
+	             				__model__   	DominantSmartGretaCaresNothing
+						R		3.8 Child's ExercicesDone: 1.0
 			Greta-RequestWork (V_Child= 2.200) [P=100%]
 				V(Greta-DoNothing) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	0.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresNothing
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-DoNothing (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 									Unchanged
 				V(Greta-PlayWithChild) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	0.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresNothing
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-PlayWithChild (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 	Child        	TotalFun:   	1.0
+											Liking:     	1.0
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	1.0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	1.0
+									Dominance:  	1.0
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	0.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.250) [P=100%]
 							V(Child-DoNothing) =  5.250
 							V(Child-Play) =  5.350
 							V(Child-Work) =  5.475
+									Effect:
+									100% 	Child        	TotalFun:   	-0.2
+												ExercicesDone:	1.0
+										Greta        	Liking:     	1.0
 				V(Greta-PromiseToPlay) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	0.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresNothing
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-PromiseToPlay (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 	Child        	Liking:     	3.75
+											Dominance:  	-3.5
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	3.75
+									Dominance:  	-3.5
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	0.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.250) [P=100%]
 							V(Child-Play) =  5.125
 							V(Child-Work) =  5.250
+									Effect:
+									100% 	Child        	TotalFun:   	-1.0
+												ExercicesDone:	1.0
+										Greta        	Liking:     	1.0
 				V(Greta-RequestWork) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	0.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresNothing
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-RequestWork (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 									Unchanged
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	0.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.250) [P=100%]
 							V(Child-DoNothing) =  5.000
 							V(Child-Play) =  5.125
 							V(Child-Work) =  5.250
+									Effect:
+									100% 	Child        	TotalFun:   	-1.0
+												ExercicesDone:	1.0
+										Greta        	Liking:     	1.0
 				V(Greta-SwitchOffConsole) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	0.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresNothing
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-SwitchOffConsole (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 	Child        	ConsoleSwitchedOff:	True
+											Liking:     	-2.0
+											Dominance:  	-0.8
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	True
+									Liking:     	-2.0
+									Dominance:  	-0.8
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	0.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.250) [P=100%]
+									Effect:
+									100% 	Child        	TotalFun:   	-1.0
+												ExercicesDone:	1.0
+										Greta        	Liking:     	1.0
 				V(Greta-ThreatenToSwitchOffConsole) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	0.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresNothing
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-ThreatenToSwitchOffConsole (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 	Child        	ThreatenSwitchOff:	True
+											Liking:     	-3.75
+											Dominance:  	-3.5
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	True
+									WorkImportance:	0.25
+									TotalFun:   	0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	-3.75
+									Dominance:  	-3.5
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	0.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.250) [P=100%]
 							V(Child-Play) =  5.125
 							V(Child-Work) =  5.250
+									Effect:
+									100% 	Child        	TotalFun:   	-1.0
+												ExercicesDone:	1.0
+										Greta        	Liking:     	1.0
+			Effect:
+			100% 				Unchanged
+				State:
+					World        	round:      	0
+					Child        	ThreatenSwitchOff:	False
+							WorkImportance:	0.25
+							TotalFun:   	0
+							PlayImportance:	0.75
+							ExercicesDone:	0
+							ChildSocialGoalLiking:	0.0
+							ChildSocialGoalDominance:	0.0
+							ConsoleSwitchedOff:	False
+							Liking:     	0.0
+							Dominance:  	1.0
+					Greta        	TeacherSocialGoalDominance:	0.0
+							Liking:     	0.0
+							Dominance:  	1.0
+							TeacherSocialGoalLiking:	0.0
+	             					__model__   	DominantSmartGretaCaresNothing
+							R		3.8 Child's ExercicesDone: 1.0
 				Child-Work (V_Child= 2.450) [P=100%]
-				V(Child-DoNothing) =  4.400
-				V(Child-Play) =  4.525
-				V(Child-Work) =  4.650
+					V(Child-DoNothing) =  4.400
+					V(Child-Play) =  4.525
+					V(Child-Work) =  4.650
+				Effect:
+				100% 	Child        	TotalFun:   	-1.0
+							ExercicesDone:	1.0
+					Greta        	Liking:     	1.0
 	V(Child-Play) =  9.400
+		State:
+			World        	round:      	0
+			Child        	ThreatenSwitchOff:	False
+					WorkImportance:	0.25
+					TotalFun:   	0
+					PlayImportance:	0.75
+					ExercicesDone:	0
+					ChildSocialGoalLiking:	0.0
+					ChildSocialGoalDominance:	0.0
+					ConsoleSwitchedOff:	False
+					Liking:     	0.0
+					Dominance:  	1.0
+			Greta        	TeacherSocialGoalDominance:	0.0
+					Liking:     	0.0
+					Dominance:  	1.0
+					TeacherSocialGoalLiking:	0.0
+	             			__model__   	DominantSmartGretaCaresLiking
+					R		3.8 Child's ExercicesDone: 1.0
 		Child-Play (V_Child= 2.325) [P=100%]
+		Effect:
+		100% 	Child        	TotalFun:   	1.0
+			Greta        	Liking:     	-1.5
+			State:
+				World        	round:      	0
+				Child        	ThreatenSwitchOff:	False
+						WorkImportance:	0.25
+						TotalFun:   	1.0
+						PlayImportance:	0.75
+						ExercicesDone:	0
+						ChildSocialGoalLiking:	0.0
+						ChildSocialGoalDominance:	0.0
+						ConsoleSwitchedOff:	False
+						Liking:     	0.0
+						Dominance:  	1.0
+				Greta        	TeacherSocialGoalDominance:	0.0
+						Liking:     	-1.5
+						Dominance:  	1.0
+						TeacherSocialGoalLiking:	0.0
+	             				__model__   	DominantSmartGretaCaresLiking
+						R		3.8 Child's ExercicesDone: 1.0
 			Greta-RequestWork (V_Child= 2.325) [P=100%]
 				V(Greta-DoNothing) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	1.0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	-1.5
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresLiking
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-DoNothing (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 									Unchanged
 				V(Greta-PlayWithChild) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	1.0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	-1.5
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresLiking
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-PlayWithChild (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 	Child        	TotalFun:   	1.8
+											Liking:     	1.0
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	1.8
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	1.0
+									Dominance:  	1.0
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	-1.5
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.250) [P=100%]
 							V(Child-DoNothing) =  5.450
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	1.8
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	1.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	-1.5
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-DoNothing (V_Child= 2.725) [P=100%]
+														Effect:
+														100% 															Unchanged
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	1.8
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	1.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	-1.5
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-DoNothing (V_Child= 2.725) [P=100%]
+														Effect:
+														100% 															Unchanged
 							V(Child-Play) =  5.530
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	1.8
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	1.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	-1.5
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 2.805) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	2.44
+															Greta        	Liking:     	-2.55
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	1.8
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	1.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	-1.5
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 2.805) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	2.44
+															Greta        	Liking:     	-2.55
 							V(Child-Work) =  5.655
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	1.8
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	1.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	-1.5
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 2.930) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	0.44
+																	ExercicesDone:	1.0
+															Greta        	Liking:     	-0.2
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	1.8
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	1.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	-1.5
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 2.930) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	0.44
+																	ExercicesDone:	1.0
+															Greta        	Liking:     	-0.2
+									Effect:
+									100% 	Child        	TotalFun:   	0.44
+												ExercicesDone:	1.0
+										Greta        	Liking:     	-0.2
 				V(Greta-PromiseToPlay) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	1.0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	-1.5
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresLiking
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-PromiseToPlay (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 	Child        	Liking:     	3.75
+											Dominance:  	-3.5
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	1.0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	3.75
+									Dominance:  	-3.5
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	-1.5
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.250) [P=100%]
 							V(Child-Play) =  5.350
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	1.0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	-1.5
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 2.725) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	1.8
+															Greta        	Liking:     	-2.55
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	1.0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	-1.5
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 2.725) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	1.8
+															Greta        	Liking:     	-2.55
 							V(Child-Work) =  5.475
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	1.0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	-1.5
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 2.850) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	-0.2
+																	ExercicesDone:	1.0
+															Greta        	Liking:     	-0.2
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	1.0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	-1.5
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 2.850) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	-0.2
+																	ExercicesDone:	1.0
+															Greta        	Liking:     	-0.2
+									Effect:
+									100% 	Child        	TotalFun:   	-0.2
+												ExercicesDone:	1.0
+										Greta        	Liking:     	-0.2
 				V(Greta-RequestWork) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	1.0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	-1.5
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresLiking
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-RequestWork (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 									Unchanged
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	1.0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	-1.5
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.250) [P=100%]
 							V(Child-DoNothing) =  5.250
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	1.0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	0.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	-1.5
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-DoNothing (V_Child= 2.625) [P=100%]
+														Effect:
+														100% 															Unchanged
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	1.0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	0.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	-1.5
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-DoNothing (V_Child= 2.625) [P=100%]
+														Effect:
+														100% 															Unchanged
 							V(Child-Play) =  5.350
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	1.0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	0.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	-1.5
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 2.725) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	1.8
+															Greta        	Liking:     	-2.55
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	1.0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	0.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	-1.5
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 2.725) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	1.8
+															Greta        	Liking:     	-2.55
 							V(Child-Work) =  5.475
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	1.0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	0.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	-1.5
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 2.850) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	-0.2
+																	ExercicesDone:	1.0
+															Greta        	Liking:     	-0.2
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	1.0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	0.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	-1.5
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 2.850) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	-0.2
+																	ExercicesDone:	1.0
+															Greta        	Liking:     	-0.2
+									Effect:
+									100% 	Child        	TotalFun:   	-0.2
+												ExercicesDone:	1.0
+										Greta        	Liking:     	-0.2
 				V(Greta-SwitchOffConsole) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	1.0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	-1.5
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresLiking
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-SwitchOffConsole (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 	Child        	ConsoleSwitchedOff:	True
+											Liking:     	-2.0
+											Dominance:  	-0.8
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	1.0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	True
+									Liking:     	-2.0
+									Dominance:  	-0.8
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	-1.5
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.250) [P=100%]
+									Effect:
+									100% 	Child        	TotalFun:   	-0.2
+												ExercicesDone:	1.0
+										Greta        	Liking:     	-0.2
 				V(Greta-ThreatenToSwitchOffConsole) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	1.0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	-1.5
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresLiking
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-ThreatenToSwitchOffConsole (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 	Child        	ThreatenSwitchOff:	True
+											Liking:     	-3.75
+											Dominance:  	-3.5
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	True
+									WorkImportance:	0.25
+									TotalFun:   	1.0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	-3.75
+									Dominance:  	-3.5
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	-1.5
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.250) [P=100%]
 							V(Child-Play) =  5.350
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	True
+											WorkImportance:	0.25
+											TotalFun:   	1.0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	-3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	-1.5
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 2.725) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	1.8
+															Greta        	Liking:     	-2.55
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	True
+											WorkImportance:	0.25
+											TotalFun:   	1.0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	-3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	-1.5
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 2.725) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	1.8
+															Greta        	Liking:     	-2.55
 							V(Child-Work) =  5.475
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	True
+											WorkImportance:	0.25
+											TotalFun:   	1.0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	-3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	-1.5
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 2.850) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	-0.2
+																	ExercicesDone:	1.0
+															Greta        	Liking:     	-0.2
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	True
+											WorkImportance:	0.25
+											TotalFun:   	1.0
+											PlayImportance:	0.75
+											ExercicesDone:	0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	-3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	-1.5
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 2.850) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	-0.2
+																	ExercicesDone:	1.0
+															Greta        	Liking:     	-0.2
+									Effect:
+									100% 	Child        	TotalFun:   	-0.2
+												ExercicesDone:	1.0
+										Greta        	Liking:     	-0.2
+			Effect:
+			100% 				Unchanged
+				State:
+					World        	round:      	0
+					Child        	ThreatenSwitchOff:	False
+							WorkImportance:	0.25
+							TotalFun:   	1.0
+							PlayImportance:	0.75
+							ExercicesDone:	0
+							ChildSocialGoalLiking:	0.0
+							ChildSocialGoalDominance:	0.0
+							ConsoleSwitchedOff:	False
+							Liking:     	0.0
+							Dominance:  	1.0
+					Greta        	TeacherSocialGoalDominance:	0.0
+							Liking:     	-1.5
+							Dominance:  	1.0
+							TeacherSocialGoalLiking:	0.0
+	             					__model__   	DominantSmartGretaCaresLiking
+							R		3.8 Child's ExercicesDone: 1.0
 				Child-Work (V_Child= 2.550) [P=100%]
-				V(Child-DoNothing) =  4.650
-					Child-DoNothing (V_Child= 2.325) [P=100%]
-					Child-DoNothing (V_Child= 2.325) [P=100%]
-				V(Child-Play) =  4.750
-					Child-Play (V_Child= 2.425) [P=100%]
-					Child-Play (V_Child= 2.425) [P=100%]
-				V(Child-Work) =  4.875
-					Child-Work (V_Child= 2.550) [P=100%]
-					Child-Work (V_Child= 2.550) [P=100%]
+					V(Child-DoNothing) =  4.650
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	1.0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	-1.5
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
+						Child-DoNothing (V_Child= 2.325) [P=100%]
+										Effect:
+										100% 											Unchanged
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	1.0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	-1.5
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
+						Child-DoNothing (V_Child= 2.325) [P=100%]
+										Effect:
+										100% 											Unchanged
+					V(Child-Play) =  4.750
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	1.0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	-1.5
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
+						Child-Play (V_Child= 2.425) [P=100%]
+										Effect:
+										100% 	Child        	TotalFun:   	1.8
+											Greta        	Liking:     	-2.55
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	1.0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	-1.5
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
+						Child-Play (V_Child= 2.425) [P=100%]
+										Effect:
+										100% 	Child        	TotalFun:   	1.8
+											Greta        	Liking:     	-2.55
+					V(Child-Work) =  4.875
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	1.0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	-1.5
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
+						Child-Work (V_Child= 2.550) [P=100%]
+										Effect:
+										100% 	Child        	TotalFun:   	-0.2
+													ExercicesDone:	1.0
+											Greta        	Liking:     	-0.2
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	1.0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	-1.5
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
+						Child-Work (V_Child= 2.550) [P=100%]
+										Effect:
+										100% 	Child        	TotalFun:   	-0.2
+													ExercicesDone:	1.0
+											Greta        	Liking:     	-0.2
+				Effect:
+				100% 	Child        	TotalFun:   	-0.2
+							ExercicesDone:	1.0
+					Greta        	Liking:     	-0.2
+		State:
+			World        	round:      	0
+			Child        	ThreatenSwitchOff:	False
+					WorkImportance:	0.25
+					TotalFun:   	0
+					PlayImportance:	0.75
+					ExercicesDone:	0
+					ChildSocialGoalLiking:	0.0
+					ChildSocialGoalDominance:	0.0
+					ConsoleSwitchedOff:	False
+					Liking:     	0.0
+					Dominance:  	1.0
+			Greta        	TeacherSocialGoalDominance:	0.0
+					Liking:     	0.0
+					Dominance:  	1.0
+					TeacherSocialGoalLiking:	0.0
+	             			__model__   	DominantSmartGretaCaresNothing
+					R		3.8 Child's ExercicesDone: 1.0
 		Child-Play (V_Child= 2.325) [P=100%]
+		Effect:
+		100% 	Child        	TotalFun:   	1.0
+			Greta        	Liking:     	-1.5
+			State:
+				World        	round:      	0
+				Child        	ThreatenSwitchOff:	False
+						WorkImportance:	0.25
+						TotalFun:   	1.0
+						PlayImportance:	0.75
+						ExercicesDone:	0
+						ChildSocialGoalLiking:	0.0
+						ChildSocialGoalDominance:	0.0
+						ConsoleSwitchedOff:	False
+						Liking:     	0.0
+						Dominance:  	1.0
+				Greta        	TeacherSocialGoalDominance:	0.0
+						Liking:     	-1.5
+						Dominance:  	1.0
+						TeacherSocialGoalLiking:	0.0
+	             				__model__   	DominantSmartGretaCaresNothing
+						R		3.8 Child's ExercicesDone: 1.0
 			Greta-RequestWork (V_Child= 2.325) [P=100%]
 				V(Greta-DoNothing) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	1.0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	-1.5
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresNothing
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-DoNothing (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 									Unchanged
 				V(Greta-PlayWithChild) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	1.0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	-1.5
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresNothing
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-PlayWithChild (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 	Child        	TotalFun:   	1.8
+											Liking:     	1.0
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	1.8
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	1.0
+									Dominance:  	1.0
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	-1.5
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.250) [P=100%]
 							V(Child-DoNothing) =  5.450
 							V(Child-Play) =  5.530
 							V(Child-Work) =  5.655
+									Effect:
+									100% 	Child        	TotalFun:   	0.44
+												ExercicesDone:	1.0
+										Greta        	Liking:     	-0.2
 				V(Greta-PromiseToPlay) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	1.0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	-1.5
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresNothing
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-PromiseToPlay (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 	Child        	Liking:     	3.75
+											Dominance:  	-3.5
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	1.0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	3.75
+									Dominance:  	-3.5
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	-1.5
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.250) [P=100%]
 							V(Child-Play) =  5.350
 							V(Child-Work) =  5.475
+									Effect:
+									100% 	Child        	TotalFun:   	-0.2
+												ExercicesDone:	1.0
+										Greta        	Liking:     	-0.2
 				V(Greta-RequestWork) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	1.0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	-1.5
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresNothing
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-RequestWork (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 									Unchanged
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	1.0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	-1.5
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.250) [P=100%]
 							V(Child-DoNothing) =  5.250
 							V(Child-Play) =  5.350
 							V(Child-Work) =  5.475
+									Effect:
+									100% 	Child        	TotalFun:   	-0.2
+												ExercicesDone:	1.0
+										Greta        	Liking:     	-0.2
 				V(Greta-SwitchOffConsole) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	1.0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	-1.5
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresNothing
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-SwitchOffConsole (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 	Child        	ConsoleSwitchedOff:	True
+											Liking:     	-2.0
+											Dominance:  	-0.8
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	1.0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	True
+									Liking:     	-2.0
+									Dominance:  	-0.8
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	-1.5
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.250) [P=100%]
+									Effect:
+									100% 	Child        	TotalFun:   	-0.2
+												ExercicesDone:	1.0
+										Greta        	Liking:     	-0.2
 				V(Greta-ThreatenToSwitchOffConsole) =  6.000
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	1.0
+								PlayImportance:	0.75
+								ExercicesDone:	0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	-1.5
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresNothing
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-ThreatenToSwitchOffConsole (V_Greta= 1.875) [P=100%]
+								Effect:
+								100% 	Child        	ThreatenSwitchOff:	True
+											Liking:     	-3.75
+											Dominance:  	-3.5
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	True
+									WorkImportance:	0.25
+									TotalFun:   	1.0
+									PlayImportance:	0.75
+									ExercicesDone:	0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	-3.75
+									Dominance:  	-3.5
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	-1.5
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.250) [P=100%]
 							V(Child-Play) =  5.350
 							V(Child-Work) =  5.475
+									Effect:
+									100% 	Child        	TotalFun:   	-0.2
+												ExercicesDone:	1.0
+										Greta        	Liking:     	-0.2
+			Effect:
+			100% 				Unchanged
+				State:
+					World        	round:      	0
+					Child        	ThreatenSwitchOff:	False
+							WorkImportance:	0.25
+							TotalFun:   	1.0
+							PlayImportance:	0.75
+							ExercicesDone:	0
+							ChildSocialGoalLiking:	0.0
+							ChildSocialGoalDominance:	0.0
+							ConsoleSwitchedOff:	False
+							Liking:     	0.0
+							Dominance:  	1.0
+					Greta        	TeacherSocialGoalDominance:	0.0
+							Liking:     	-1.5
+							Dominance:  	1.0
+							TeacherSocialGoalLiking:	0.0
+	             					__model__   	DominantSmartGretaCaresNothing
+							R		3.8 Child's ExercicesDone: 1.0
 				Child-Work (V_Child= 2.550) [P=100%]
-				V(Child-DoNothing) =  4.650
-				V(Child-Play) =  4.750
-				V(Child-Work) =  4.875
+					V(Child-DoNothing) =  4.650
+					V(Child-Play) =  4.750
+					V(Child-Work) =  4.875
+				Effect:
+				100% 	Child        	TotalFun:   	-0.2
+							ExercicesDone:	1.0
+					Greta        	Liking:     	-0.2
 	V(Child-Work) =  9.750
+		State:
+			World        	round:      	0
+			Child        	ThreatenSwitchOff:	False
+					WorkImportance:	0.25
+					TotalFun:   	0
+					PlayImportance:	0.75
+					ExercicesDone:	0
+					ChildSocialGoalLiking:	0.0
+					ChildSocialGoalDominance:	0.0
+					ConsoleSwitchedOff:	False
+					Liking:     	0.0
+					Dominance:  	1.0
+			Greta        	TeacherSocialGoalDominance:	0.0
+					Liking:     	0.0
+					Dominance:  	1.0
+					TeacherSocialGoalLiking:	0.0
+	             			__model__   	DominantSmartGretaCaresLiking
+					R		3.8 Child's ExercicesDone: 1.0
 		Child-Work (V_Child= 2.450) [P=100%]
+		Effect:
+		100% 	Child        	TotalFun:   	-1.0
+					ExercicesDone:	1.0
+			Greta        	Liking:     	1.0
+			State:
+				World        	round:      	0
+				Child        	ThreatenSwitchOff:	False
+						WorkImportance:	0.25
+						TotalFun:   	-1.0
+						PlayImportance:	0.75
+						ExercicesDone:	1.0
+						ChildSocialGoalLiking:	0.0
+						ChildSocialGoalDominance:	0.0
+						ConsoleSwitchedOff:	False
+						Liking:     	0.0
+						Dominance:  	1.0
+				Greta        	TeacherSocialGoalDominance:	0.0
+						Liking:     	1.0
+						Dominance:  	1.0
+						TeacherSocialGoalLiking:	0.0
+	             				__model__   	DominantSmartGretaCaresLiking
+						R		3.8 Child's ExercicesDone: 1.0
 			Greta-RequestWork (V_Child= 2.450) [P=100%]
 				V(Greta-DoNothing) =  7.050
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	-1.0
+								PlayImportance:	0.75
+								ExercicesDone:	1.0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	1.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresLiking
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-DoNothing (V_Greta= 2.250) [P=100%]
+								Effect:
+								100% 									Unchanged
 				V(Greta-PlayWithChild) =  7.050
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	-1.0
+								PlayImportance:	0.75
+								ExercicesDone:	1.0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	1.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresLiking
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-PlayWithChild (V_Greta= 2.250) [P=100%]
+								Effect:
+								100% 	Child        	TotalFun:   	0.2
+											Liking:     	1.0
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	0.2
+									PlayImportance:	0.75
+									ExercicesDone:	1.0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	1.0
+									Dominance:  	1.0
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	1.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.550) [P=100%]
 							V(Child-DoNothing) =  5.800
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	0.2
+											PlayImportance:	0.75
+											ExercicesDone:	1.0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	1.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	1.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-DoNothing (V_Child= 2.900) [P=100%]
+														Effect:
+														100% 															Unchanged
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	0.2
+											PlayImportance:	0.75
+											ExercicesDone:	1.0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	1.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	1.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-DoNothing (V_Child= 2.900) [P=100%]
+														Effect:
+														100% 															Unchanged
 							V(Child-Play) =  5.920
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	0.2
+											PlayImportance:	0.75
+											ExercicesDone:	1.0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	1.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	1.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 3.020) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	1.16
+															Greta        	Liking:     	-0.8
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	0.2
+											PlayImportance:	0.75
+											ExercicesDone:	1.0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	1.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	1.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 3.020) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	1.16
+															Greta        	Liking:     	-0.8
 							V(Child-Work) =  5.970
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	0.2
+											PlayImportance:	0.75
+											ExercicesDone:	1.0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	1.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	1.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 3.070) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	-0.84
+																	ExercicesDone:	1.8
+															Greta        	Liking:     	1.8
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	0.2
+											PlayImportance:	0.75
+											ExercicesDone:	1.0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	1.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	1.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 3.070) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	-0.84
+																	ExercicesDone:	1.8
+															Greta        	Liking:     	1.8
+									Effect:
+									100% 	Child        	TotalFun:   	-0.84
+												ExercicesDone:	1.8
+										Greta        	Liking:     	1.8
 				V(Greta-PromiseToPlay) =  7.050
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	-1.0
+								PlayImportance:	0.75
+								ExercicesDone:	1.0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	1.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresLiking
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-PromiseToPlay (V_Greta= 2.250) [P=100%]
+								Effect:
+								100% 	Child        	Liking:     	3.75
+											Dominance:  	-3.5
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	-1.0
+									PlayImportance:	0.75
+									ExercicesDone:	1.0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	3.75
+									Dominance:  	-3.5
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	1.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.550) [P=100%]
 							V(Child-Play) =  5.650
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	-1.0
+											PlayImportance:	0.75
+											ExercicesDone:	1.0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	1.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 2.900) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	0.2
+															Greta        	Liking:     	-0.8
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	-1.0
+											PlayImportance:	0.75
+											ExercicesDone:	1.0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	1.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 2.900) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	0.2
+															Greta        	Liking:     	-0.8
 							V(Child-Work) =  5.700
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	-1.0
+											PlayImportance:	0.75
+											ExercicesDone:	1.0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	1.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 2.950) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	-1.8
+																	ExercicesDone:	1.8
+															Greta        	Liking:     	1.8
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	-1.0
+											PlayImportance:	0.75
+											ExercicesDone:	1.0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	1.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 2.950) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	-1.8
+																	ExercicesDone:	1.8
+															Greta        	Liking:     	1.8
+									Effect:
+									100% 	Child        	TotalFun:   	-1.8
+												ExercicesDone:	1.8
+										Greta        	Liking:     	1.8
 				V(Greta-RequestWork) =  7.050
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	-1.0
+								PlayImportance:	0.75
+								ExercicesDone:	1.0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	1.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresLiking
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-RequestWork (V_Greta= 2.250) [P=100%]
+								Effect:
+								100% 									Unchanged
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	-1.0
+									PlayImportance:	0.75
+									ExercicesDone:	1.0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	1.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.550) [P=100%]
 							V(Child-DoNothing) =  5.500
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	-1.0
+											PlayImportance:	0.75
+											ExercicesDone:	1.0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	0.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	1.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-DoNothing (V_Child= 2.750) [P=100%]
+														Effect:
+														100% 															Unchanged
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	-1.0
+											PlayImportance:	0.75
+											ExercicesDone:	1.0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	0.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	1.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-DoNothing (V_Child= 2.750) [P=100%]
+														Effect:
+														100% 															Unchanged
 							V(Child-Play) =  5.650
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	-1.0
+											PlayImportance:	0.75
+											ExercicesDone:	1.0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	0.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	1.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 2.900) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	0.2
+															Greta        	Liking:     	-0.8
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	-1.0
+											PlayImportance:	0.75
+											ExercicesDone:	1.0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	0.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	1.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 2.900) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	0.2
+															Greta        	Liking:     	-0.8
 							V(Child-Work) =  5.700
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	-1.0
+											PlayImportance:	0.75
+											ExercicesDone:	1.0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	0.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	1.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 2.950) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	-1.8
+																	ExercicesDone:	1.8
+															Greta        	Liking:     	1.8
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	False
+											WorkImportance:	0.25
+											TotalFun:   	-1.0
+											PlayImportance:	0.75
+											ExercicesDone:	1.0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	0.0
+											Dominance:  	1.0
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	1.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 2.950) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	-1.8
+																	ExercicesDone:	1.8
+															Greta        	Liking:     	1.8
+									Effect:
+									100% 	Child        	TotalFun:   	-1.8
+												ExercicesDone:	1.8
+										Greta        	Liking:     	1.8
 				V(Greta-SwitchOffConsole) =  7.050
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	-1.0
+								PlayImportance:	0.75
+								ExercicesDone:	1.0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	1.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresLiking
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-SwitchOffConsole (V_Greta= 2.250) [P=100%]
+								Effect:
+								100% 	Child        	ConsoleSwitchedOff:	True
+											Liking:     	-2.0
+											Dominance:  	-0.8
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	-1.0
+									PlayImportance:	0.75
+									ExercicesDone:	1.0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	True
+									Liking:     	-2.0
+									Dominance:  	-0.8
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	1.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.550) [P=100%]
+									Effect:
+									100% 	Child        	TotalFun:   	-1.8
+												ExercicesDone:	1.8
+										Greta        	Liking:     	1.8
 				V(Greta-ThreatenToSwitchOffConsole) =  7.050
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	-1.0
+								PlayImportance:	0.75
+								ExercicesDone:	1.0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	1.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresLiking
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-ThreatenToSwitchOffConsole (V_Greta= 2.250) [P=100%]
+								Effect:
+								100% 	Child        	ThreatenSwitchOff:	True
+											Liking:     	-3.75
+											Dominance:  	-3.5
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	True
+									WorkImportance:	0.25
+									TotalFun:   	-1.0
+									PlayImportance:	0.75
+									ExercicesDone:	1.0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	-3.75
+									Dominance:  	-3.5
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	1.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.550) [P=100%]
 							V(Child-Play) =  5.650
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	True
+											WorkImportance:	0.25
+											TotalFun:   	-1.0
+											PlayImportance:	0.75
+											ExercicesDone:	1.0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	-3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	1.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 2.900) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	0.2
+															Greta        	Liking:     	-0.8
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	True
+											WorkImportance:	0.25
+											TotalFun:   	-1.0
+											PlayImportance:	0.75
+											ExercicesDone:	1.0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	-3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	1.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Play (V_Child= 2.900) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	0.2
+															Greta        	Liking:     	-0.8
 							V(Child-Work) =  5.700
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	True
+											WorkImportance:	0.25
+											TotalFun:   	-1.0
+											PlayImportance:	0.75
+											ExercicesDone:	1.0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	-3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	1.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresLiking
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 2.950) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	-1.8
+																	ExercicesDone:	1.8
+															Greta        	Liking:     	1.8
+								State:
+									World        	round:      	0
+									Child        	ThreatenSwitchOff:	True
+											WorkImportance:	0.25
+											TotalFun:   	-1.0
+											PlayImportance:	0.75
+											ExercicesDone:	1.0
+											ChildSocialGoalLiking:	0.0
+											ChildSocialGoalDominance:	0.0
+											ConsoleSwitchedOff:	False
+											Liking:     	-3.75
+											Dominance:  	-3.5
+	             									__model__   	SubmissiveDumbChildWorkImportant
+											R		3.8 Child's ExercicesDone: 1.0
+													1.2 Child's TotalFun: 1.0
+									Greta        	TeacherSocialGoalDominance:	0.0
+											Liking:     	1.0
+											Dominance:  	1.0
+											TeacherSocialGoalLiking:	0.0
+	             									__model__   	DominantSmartGretaCaresNothing
+											R		3.8 Child's ExercicesDone: 1.0
 								Child-Work (V_Child= 2.950) [P=100%]
+														Effect:
+														100% 	Child        	TotalFun:   	-1.8
+																	ExercicesDone:	1.8
+															Greta        	Liking:     	1.8
+									Effect:
+									100% 	Child        	TotalFun:   	-1.8
+												ExercicesDone:	1.8
+										Greta        	Liking:     	1.8
+			Effect:
+			100% 				Unchanged
+				State:
+					World        	round:      	0
+					Child        	ThreatenSwitchOff:	False
+							WorkImportance:	0.25
+							TotalFun:   	-1.0
+							PlayImportance:	0.75
+							ExercicesDone:	1.0
+							ChildSocialGoalLiking:	0.0
+							ChildSocialGoalDominance:	0.0
+							ConsoleSwitchedOff:	False
+							Liking:     	0.0
+							Dominance:  	1.0
+					Greta        	TeacherSocialGoalDominance:	0.0
+							Liking:     	1.0
+							Dominance:  	1.0
+							TeacherSocialGoalLiking:	0.0
+	             					__model__   	DominantSmartGretaCaresLiking
+							R		3.8 Child's ExercicesDone: 1.0
 				Child-Work (V_Child= 2.650) [P=100%]
-				V(Child-DoNothing) =  4.900
-					Child-DoNothing (V_Child= 2.450) [P=100%]
-					Child-DoNothing (V_Child= 2.450) [P=100%]
-				V(Child-Play) =  5.050
-					Child-Play (V_Child= 2.600) [P=100%]
-					Child-Play (V_Child= 2.600) [P=100%]
-				V(Child-Work) =  5.100
-					Child-Work (V_Child= 2.650) [P=100%]
-					Child-Work (V_Child= 2.650) [P=100%]
+					V(Child-DoNothing) =  4.900
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	-1.0
+									PlayImportance:	0.75
+									ExercicesDone:	1.0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	1.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
+						Child-DoNothing (V_Child= 2.450) [P=100%]
+										Effect:
+										100% 											Unchanged
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	-1.0
+									PlayImportance:	0.75
+									ExercicesDone:	1.0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	1.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
+						Child-DoNothing (V_Child= 2.450) [P=100%]
+										Effect:
+										100% 											Unchanged
+					V(Child-Play) =  5.050
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	-1.0
+									PlayImportance:	0.75
+									ExercicesDone:	1.0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	1.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
+						Child-Play (V_Child= 2.600) [P=100%]
+										Effect:
+										100% 	Child        	TotalFun:   	0.2
+											Greta        	Liking:     	-0.8
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	-1.0
+									PlayImportance:	0.75
+									ExercicesDone:	1.0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	1.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
+						Child-Play (V_Child= 2.600) [P=100%]
+										Effect:
+										100% 	Child        	TotalFun:   	0.2
+											Greta        	Liking:     	-0.8
+					V(Child-Work) =  5.100
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	-1.0
+									PlayImportance:	0.75
+									ExercicesDone:	1.0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	1.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
+						Child-Work (V_Child= 2.650) [P=100%]
+										Effect:
+										100% 	Child        	TotalFun:   	-1.8
+													ExercicesDone:	1.8
+											Greta        	Liking:     	1.8
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	-1.0
+									PlayImportance:	0.75
+									ExercicesDone:	1.0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	1.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresLiking
+									R		3.8 Child's ExercicesDone: 1.0
+						Child-Work (V_Child= 2.650) [P=100%]
+										Effect:
+										100% 	Child        	TotalFun:   	-1.8
+													ExercicesDone:	1.8
+											Greta        	Liking:     	1.8
+				Effect:
+				100% 	Child        	TotalFun:   	-1.8
+							ExercicesDone:	1.8
+					Greta        	Liking:     	1.8
+		State:
+			World        	round:      	0
+			Child        	ThreatenSwitchOff:	False
+					WorkImportance:	0.25
+					TotalFun:   	0
+					PlayImportance:	0.75
+					ExercicesDone:	0
+					ChildSocialGoalLiking:	0.0
+					ChildSocialGoalDominance:	0.0
+					ConsoleSwitchedOff:	False
+					Liking:     	0.0
+					Dominance:  	1.0
+			Greta        	TeacherSocialGoalDominance:	0.0
+					Liking:     	0.0
+					Dominance:  	1.0
+					TeacherSocialGoalLiking:	0.0
+	             			__model__   	DominantSmartGretaCaresNothing
+					R		3.8 Child's ExercicesDone: 1.0
 		Child-Work (V_Child= 2.450) [P=100%]
+		Effect:
+		100% 	Child        	TotalFun:   	-1.0
+					ExercicesDone:	1.0
+			Greta        	Liking:     	1.0
+			State:
+				World        	round:      	0
+				Child        	ThreatenSwitchOff:	False
+						WorkImportance:	0.25
+						TotalFun:   	-1.0
+						PlayImportance:	0.75
+						ExercicesDone:	1.0
+						ChildSocialGoalLiking:	0.0
+						ChildSocialGoalDominance:	0.0
+						ConsoleSwitchedOff:	False
+						Liking:     	0.0
+						Dominance:  	1.0
+				Greta        	TeacherSocialGoalDominance:	0.0
+						Liking:     	1.0
+						Dominance:  	1.0
+						TeacherSocialGoalLiking:	0.0
+	             				__model__   	DominantSmartGretaCaresNothing
+						R		3.8 Child's ExercicesDone: 1.0
 			Greta-RequestWork (V_Child= 2.450) [P=100%]
 				V(Greta-DoNothing) =  7.050
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	-1.0
+								PlayImportance:	0.75
+								ExercicesDone:	1.0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	1.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresNothing
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-DoNothing (V_Greta= 2.250) [P=100%]
+								Effect:
+								100% 									Unchanged
 				V(Greta-PlayWithChild) =  7.050
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	-1.0
+								PlayImportance:	0.75
+								ExercicesDone:	1.0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	1.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresNothing
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-PlayWithChild (V_Greta= 2.250) [P=100%]
+								Effect:
+								100% 	Child        	TotalFun:   	0.2
+											Liking:     	1.0
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	0.2
+									PlayImportance:	0.75
+									ExercicesDone:	1.0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	1.0
+									Dominance:  	1.0
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	1.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.550) [P=100%]
 							V(Child-DoNothing) =  5.800
 							V(Child-Play) =  5.920
 							V(Child-Work) =  5.970
+									Effect:
+									100% 	Child        	TotalFun:   	-0.84
+												ExercicesDone:	1.8
+										Greta        	Liking:     	1.8
 				V(Greta-PromiseToPlay) =  7.050
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	-1.0
+								PlayImportance:	0.75
+								ExercicesDone:	1.0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	1.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresNothing
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-PromiseToPlay (V_Greta= 2.250) [P=100%]
+								Effect:
+								100% 	Child        	Liking:     	3.75
+											Dominance:  	-3.5
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	-1.0
+									PlayImportance:	0.75
+									ExercicesDone:	1.0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	3.75
+									Dominance:  	-3.5
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	1.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.550) [P=100%]
 							V(Child-Play) =  5.650
 							V(Child-Work) =  5.700
+									Effect:
+									100% 	Child        	TotalFun:   	-1.8
+												ExercicesDone:	1.8
+										Greta        	Liking:     	1.8
 				V(Greta-RequestWork) =  7.050
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	-1.0
+								PlayImportance:	0.75
+								ExercicesDone:	1.0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	1.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresNothing
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-RequestWork (V_Greta= 2.250) [P=100%]
+								Effect:
+								100% 									Unchanged
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	-1.0
+									PlayImportance:	0.75
+									ExercicesDone:	1.0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	0.0
+									Dominance:  	1.0
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	1.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.550) [P=100%]
 							V(Child-DoNothing) =  5.500
 							V(Child-Play) =  5.650
 							V(Child-Work) =  5.700
+									Effect:
+									100% 	Child        	TotalFun:   	-1.8
+												ExercicesDone:	1.8
+										Greta        	Liking:     	1.8
 				V(Greta-SwitchOffConsole) =  7.050
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	-1.0
+								PlayImportance:	0.75
+								ExercicesDone:	1.0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	1.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresNothing
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-SwitchOffConsole (V_Greta= 2.250) [P=100%]
+								Effect:
+								100% 	Child        	ConsoleSwitchedOff:	True
+											Liking:     	-2.0
+											Dominance:  	-0.8
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	False
+									WorkImportance:	0.25
+									TotalFun:   	-1.0
+									PlayImportance:	0.75
+									ExercicesDone:	1.0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	True
+									Liking:     	-2.0
+									Dominance:  	-0.8
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	1.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.550) [P=100%]
+									Effect:
+									100% 	Child        	TotalFun:   	-1.8
+												ExercicesDone:	1.8
+										Greta        	Liking:     	1.8
 				V(Greta-ThreatenToSwitchOffConsole) =  7.050
+					State:
+						World        	round:      	0
+						Child        	ThreatenSwitchOff:	False
+								WorkImportance:	0.25
+								TotalFun:   	-1.0
+								PlayImportance:	0.75
+								ExercicesDone:	1.0
+								ChildSocialGoalLiking:	0.0
+								ChildSocialGoalDominance:	0.0
+								ConsoleSwitchedOff:	False
+								Liking:     	0.0
+								Dominance:  	1.0
+	             						__model__   	SubmissiveDumbChildWorkImportant
+								R		3.8 Child's ExercicesDone: 1.0
+										1.2 Child's TotalFun: 1.0
+						Greta        	TeacherSocialGoalDominance:	0.0
+								Liking:     	1.0
+								Dominance:  	1.0
+								TeacherSocialGoalLiking:	0.0
+	             						__model__   	DominantSmartGretaCaresNothing
+								R		3.8 Child's ExercicesDone: 1.0
 					Greta-ThreatenToSwitchOffConsole (V_Greta= 2.250) [P=100%]
+								Effect:
+								100% 	Child        	ThreatenSwitchOff:	True
+											Liking:     	-3.75
+											Dominance:  	-3.5
+						State:
+							World        	round:      	0
+							Child        	ThreatenSwitchOff:	True
+									WorkImportance:	0.25
+									TotalFun:   	-1.0
+									PlayImportance:	0.75
+									ExercicesDone:	1.0
+									ChildSocialGoalLiking:	0.0
+									ChildSocialGoalDominance:	0.0
+									ConsoleSwitchedOff:	False
+									Liking:     	-3.75
+									Dominance:  	-3.5
+	             							__model__   	SubmissiveDumbChildWorkImportant
+									R		3.8 Child's ExercicesDone: 1.0
+											1.2 Child's TotalFun: 1.0
+							Greta        	TeacherSocialGoalDominance:	0.0
+									Liking:     	1.0
+									Dominance:  	1.0
+									TeacherSocialGoalLiking:	0.0
+	             							__model__   	DominantSmartGretaCaresNothing
+									R		3.8 Child's ExercicesDone: 1.0
 						Child-Work (V_Greta= 2.550) [P=100%]
 							V(Child-Play) =  5.650
 							V(Child-Work) =  5.700
+									Effect:
+									100% 	Child        	TotalFun:   	-1.8
+												ExercicesDone:	1.8
+										Greta        	Liking:     	1.8
+			Effect:
+			100% 				Unchanged
+				State:
+					World        	round:      	0
+					Child        	ThreatenSwitchOff:	False
+							WorkImportance:	0.25
+							TotalFun:   	-1.0
+							PlayImportance:	0.75
+							ExercicesDone:	1.0
+							ChildSocialGoalLiking:	0.0
+							ChildSocialGoalDominance:	0.0
+							ConsoleSwitchedOff:	False
+							Liking:     	0.0
+							Dominance:  	1.0
+					Greta        	TeacherSocialGoalDominance:	0.0
+							Liking:     	1.0
+							Dominance:  	1.0
+							TeacherSocialGoalLiking:	0.0
+	             					__model__   	DominantSmartGretaCaresNothing
+							R		3.8 Child's ExercicesDone: 1.0
 				Child-Work (V_Child= 2.650) [P=100%]
-				V(Child-DoNothing) =  4.900
-				V(Child-Play) =  5.050
-				V(Child-Work) =  5.100
+					V(Child-DoNothing) =  4.900
+					V(Child-Play) =  5.050
+					V(Child-Work) =  5.100
+				Effect:
+				100% 	Child        	TotalFun:   	-1.8
+							ExercicesDone:	1.8
+					Greta        	Liking:     	1.8
