@@ -1,7 +1,7 @@
-from reward import *
-from action import *
-from world import World, stateKey, actionKey, binaryKey, modelKey
-from agent import Agent
+from modified_psychsim.reward import *
+from modified_psychsim.action import *
+from modified_psychsim.world import World, stateKey, actionKey, binaryKey, modelKey
+from modified_psychsim.agent import Agent
 try:
     from cStringIO import StringIO
 except:
@@ -185,15 +185,15 @@ class AAMAS:
         tree = makeTree(approachMatrix(change, self.world.getValue(stateKey('Child', 'PlayImportance')), minMax['max']))
         self.world.setDynamics(change, atom, tree)
 
-        ##                #The teacher can play with the child, providing him more fun than if he played alone.
-        ##                atom = Action({'subject': greta.name, 'verb': 'PlayWithChild'})
-        ##                change = stateKey(child.name, 'TotalFun')
-        ##                tree = makeTree(approachMatrix(change, .2, minMax['max']))
-        ##                self.world.setDynamics(change, atom, tree)
-        ##
-        ##                change = stateKey(child.name, 'Liking')
-        ##                tree = makeTree(approachMatrix(change, .2, minMax['max']))
-        ##                self.world.setDynamics(change, atom, tree)
+        #The teacher can play with the child, providing him more fun than if he played alone.
+        atom = Action({'subject': greta.name, 'verb': 'PlayWithChild'})
+        change = stateKey(child.name, 'TotalFun')
+        tree = makeTree(approachMatrix(change, .2, minMax['max']))
+        self.world.setDynamics(change, atom, tree)
+
+        change = stateKey(child.name, 'Liking')
+        tree = makeTree(approachMatrix(change, .2, minMax['max']))
+        self.world.setDynamics(change, atom, tree)
 
         # The teacher can switch off the console. That will decrease the child dominance ...
         atom = Action({'subject': greta.name, 'verb': 'SwitchOffConsole'})
@@ -311,7 +311,7 @@ class AAMAS:
     def runit(self, Msg):
 
         print(Msg)
-
+        self.maxRounds = 0
         for t in range(self.maxRounds + 1):
             # print("Round %d"%t)
 
@@ -334,7 +334,7 @@ class AAMAS:
             self.world.printState(buf=output)
 
             # self.world.explain(self.world.step(), level=2)
-            self.world.explain(self.world.step(), level=2, buf=output)
+            self.world.explain(self.world.step(), level=3, buf=output)
             # print("output val")
             # print(output.getvalue())
             # print("after output val")
@@ -356,7 +356,7 @@ AAMASTest.modeltest(trueModels, 'DominantSmartGretaCaresNothing', .75, 'Submissi
 
 AAMASTest.runit("Wrong model of the child")
 
-print(output.getvalue())
+# print(output.getvalue())
 
 # Write logs
 f = open("logs/florian_phd.log", "w")

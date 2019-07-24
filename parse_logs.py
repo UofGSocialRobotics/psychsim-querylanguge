@@ -5,6 +5,8 @@ from StringIO import StringIO
 import argparse
 from termcolor import colored
 import helper_functions as helper
+import anytree
+import actiontree
 
 def get_ints(s):
     return [int(s) for s in str.split(" ") if s.isdigit()]
@@ -74,20 +76,52 @@ class LogParser:
     def parse_utility(self, log_line):
         return helper.string_between_parentheses(log_line), helper.extract_floats(log_line)[0]
 
+    def parse_model(self, log_line):
+        return log_line.split("__model__")[1].strip()
+
+    def is_projection_action_utility_line(self, s):
+        # return (("Effect:" not in s) and ("State:" not in s) and (helper.count_tabs_at_beginning_of_line(s) == s.count('\t')))
+        return "(V_" in s
+    
+    def parse_projection_action_utility_line(self, line):
+        splited_at_dash = line.strip().split("-")
+        agent = splited_at_dash[0]
+        action = splited_at_dash[1].split()[0]
+        splited_at_equal = line.split("=")
+        u = float(helper.extract_floats(splited_at_equal[1])[0])
+        u_for = splited_at_equal[0].split("_")[-1]
+        return agent, action, u, u_for
+
+    # def init_projection_tree(self):
+    #     last_node_of_depth = dict()
+    #     root = anytree.Node("root", parent=None)
+    #     last_node_of_depth[0] = root
+    #     return last_node_of_depth
+
+
+
     def parse_log(self, filepath=None, buffer=None):
-        round = 0
+        last_node = None
+        round = -1
         if not filepath:
             filepath = self.filename
         with open(filepath) as fp:
-           line = fp.readline()
-           while line:
-                line = fp.readline()
-                round = self.update_round(current_round=round, line=line)
-                if line and line[0] == "\t":
-                    if line[:3] == "\tV(":
-                        action, utility = self.parse_utility(line)
-                        self.actions[round][consts.UTILITIES][action] = utility
-                else:
+            lines = fp.readlines()
+            for i, line in enumerate(lines):
+                print(i)
+                print(line)
+
+                new_round = self.update_round(current_round=round, line=line)
+                if new_round != round:
+                    round = new_round
+                    last_node_of_depth = dict()
+                    print("new round")
+                n_tabs = helper.count_tabs_at_beginning_of_line(line)
+
+
+                if n_tabs == 0:
+
+                    ## What the agent actually does
                     if line[0:4] == "100%":
                         pass
                     else:
@@ -101,10 +135,61 @@ class LogParser:
                             self.actions[round] = dict()
                             self.actions[round][consts.AGENT] = agent
                             self.actions[round][consts.ACTION] = action
-                            self.actions[round][consts.UTILITIES] = dict()
+                            # self.actions[round][consts.UTILITIES] = dict()
+                            # self.actions[round][consts.PROJECTION] = dict()
+                            # root = anytree.None(agentdoesaction, agent=agent, action=action)
+                            root = actiontree.create_action_node(agentdoesaction, parent=None, agent=agent, action=action, type="root")
+                            self.actions[round][consts.PROJECTION] = root
+                            # last_node_of_depth[0].name = "ROOT_"+agentdoesaction
+                            last_node_of_depth[0] = root
+                            print("initiated last_node_of_depth[0])")
+                            print(last_node_of_depth[0])
+                            # self.actions[round][consts.PROJECTION][action] = last_node_of_depth[0]
+                            # new_node = anytree.Node(agentdoesaction, agent=agent, action=action, parent=last_node)
+                            # self.actions[round+100] = new_node
+                            # last_node = new_node
+
+
+                elif "__model__" in line:
+                    model = self.parse_model(line)
+
+
+                # elif n_tabs == 1:
+                #     if line[:3] == "\tV(":
+                #
+                #         ## Utility of what the agent actually does
+                #         action, utility = self.parse_utility(line)
+                #         self.actions[round][consts.UTILITIES][action] = utility
+                #         # last_node.utility = utility
+                ## Read utility and create new action
+                elif "V(" in line:
+                    agentdoesaction, utility = self.parse_utility(line)
+                    agent, action = self.who_does_what(agentdoesaction, buffer=buffer)
+                    new_node = actiontree.create_action_node(agent+"-"+action, parent=last_node_of_depth[n_tabs-1], action=action, agent=agent, V=utility, type="explanation")
+                    last_node_of_depth[n_tabs] = new_node
+
+
+                elif "(V_" in line:
+                    agent, action, u, u_for = self.parse_projection_action_utility_line(line)
+                    agentdoesaction = agent+'-'+action
+                    parent = last_node_of_depth[n_tabs-1]
+                    # existing_node = actiontree.get_child(parent, child_name=agentdoesaction)
+                    # if existing_node:
+                    #     existing_node.V_for_agent = (u_for, u)
+                    # else:
+                    new_node = actiontree.create_action_node(agentdoesaction, parent=parent, action=action, agent=agent, type="next_action", V_for_agent=(u_for,u))
+                    # parent.next_action = new_node
+                    last_node_of_depth[n_tabs] = new_node
+
+                print(last_node_of_depth)
+
+
 
         self.n_rounds = round
-        print(self.n_rounds, self.actions)
+        print(self.n_rounds)
+        print(self.actions)
+        print("render tree")
+        print(anytree.RenderTree(last_node_of_depth[0]))
 
     ############################################################################################################
     ##                            Reading, understanding and executing user command                           ##

@@ -14,3 +14,18 @@ def add_space_at_end(s, n=1):
     for i in range(n):
         s += " "
     return s
+
+def count_tabs_at_beginning_of_line(s):
+    n_tabs = 0
+    for c in s:
+        if c == '\t':
+            n_tabs += 1
+        else:
+            return n_tabs
+
+
+def child_with_this_name_exists(node, child_name):
+    for child in node.children:
+        if child.name == child_name:
+            return True
+    return False
