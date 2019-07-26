@@ -9,6 +9,13 @@ optional = "optional"
 ROUND = "round"
 AGENT = "agent"
 ACTION = "action"
+QUERY_PARAM = {
+    ROUND: ["round", "r"],
+    AGENT: ["agent", "ag"],
+    ACTION: ["action", "act"]
+}
+ALL_QUERY_PARAMS = [y for x in QUERY_PARAM.values() for y in x ]
+
 UTILITIES = "utilities"
 PROJECTION = "projection"
 
@@ -16,8 +23,10 @@ COMMANDS_GET_ACTIONS = "get action", "get actions"
 COMMAND_REPLAY_SIM = "replay simulation", "replay sim", "replay"
 COMMAND_GET_AGENTS = "get agent", "get agents"
 COMMAND_GET_UTILITIES = "get utilities", "get utility"
+COMMAND_GET_MODEL = "get models", ""
 
 COMMAND_PROJECTION_FULL = "projection full", "proj full"
+COMMAND_PROJECTION_OPTPATH = "projection optimalpath", "proj optpath", "projection optpath", "p o"
 
 HELP = {
     commands: {

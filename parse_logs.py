@@ -7,6 +7,7 @@ from termcolor import colored
 import helper_functions as helper
 import anytree
 import actiontree
+import itertools
 
 def get_ints(s):
     return [int(s) for s in str.split(" ") if s.isdigit()]
@@ -32,6 +33,7 @@ class LogParser:
         self.n_rounds = -1
         self.agents_list = list()
         self.actions_list = list()
+        self.models = dict()
         self.parse_log()
 
         self.command = None
@@ -98,12 +100,25 @@ class LogParser:
     #     last_node_of_depth[0] = root
     #     return last_node_of_depth
 
+    def add_model(self, tuple, agent):
+        model, model_about = tuple[1], tuple[0]
+        if agent not in self.models.keys():
+            self.models[agent] = dict()
+        self.add_model_about(model, model_about, agent)
+
+    def add_model_about(self, model, model_about, agent):
+        if model_about not in self.models[agent].keys():
+            self.models[agent][model_about] = list()
+        if model not in self.models[agent][model_about]:
+            self.models[agent][model_about].append(model)
 
 
     def parse_log(self, filepath=None, buffer=None):
-        last_node = None
+        # last_node = None
         round = -1
-        model = None
+        models = list()
+        line_worldstate = 1
+        model_about = None
         if not filepath:
             filepath = self.filename
         with open(filepath) as fp:
@@ -135,7 +150,7 @@ class LogParser:
                             self.actions[round] = dict()
                             self.actions[round][consts.AGENT] = agent
                             self.actions[round][consts.ACTION] = action
-                            root = actiontree.create_action_node(agentdoesaction, parent=None, agent=agent, action=action, model=model)
+                            root = actiontree.create_action_node(agentdoesaction, parent=None, agent=agent, action=action, models=models)
                             self.actions[round][consts.PROJECTION] = root
                             last_node_of_depth[0] = root
                             # print("initiated last_node_of_depth[0])")
@@ -143,29 +158,49 @@ class LogParser:
 
 
                 elif "__model__" in line:
-                    model = self.parse_model(line)
-
+                    models.append([model_about, self.parse_model(line)])
+                    # print(models)
 
                 elif "V(" in line:
                     agentdoesaction, utility = self.parse_utility(line)
                     agent, action = self.who_does_what(agentdoesaction, buffer=buffer)
                     parent = last_node_of_depth[n_tabs-1]
-                    new_node = actiontree.create_action_node(agent+"-"+action, parent=parent, action=action, agent=agent, model=model, V=float(utility))
+                    new_node = actiontree.create_action_node(agent+"-"+action, parent=parent, action=action, agent=agent, models=models, V=float(utility))
                     if n_tabs == 1 and parent.name == agentdoesaction :
                         parent.next_action = new_node
                     last_node_of_depth[n_tabs] = new_node
+                    for tuple in models:
+                        self.add_model(tuple, agent)
+                    models = list()
+
+
 
 
                 elif "(V_" in line:
                     agent, action, u, u_for = self.parse_projection_action_utility_line(line)
                     agentdoesaction = agent+'-'+action
                     parent = last_node_of_depth[n_tabs-1]
-                    new_node = actiontree.create_action_node(agentdoesaction, parent=parent, action=action, agent=agent, model=model, V_for_agent=(u_for,u))
+                    new_node = actiontree.create_action_node(agentdoesaction, parent=parent, action=action, agent=agent, models=models, V_for_agent=(u_for,u))
                     last_node_of_depth[n_tabs] = new_node
                     if parent.agent != agent :
                         parent.next_action = new_node
+                    for tuple in models:
+                        self.add_model(tuple, agent)
+                    models = list()
                 # print(last_node_of_depth)
 
+
+                if "State:" in line:
+                    line_worldstate = 0
+                    model_about = None
+                else:
+                    line_worldstate -= 1
+                    if line_worldstate == -1:
+                        model_about_indent = helper.count_tabs_at_beginning_of_line(line)
+                    elif line_worldstate <-1:
+                        tabs = helper.count_tabs_at_beginning_of_line(line)
+                        if tabs == model_about_indent:
+                            model_about = line.strip().split(" ")[0]
 
 
         self.n_rounds = round
@@ -199,7 +234,7 @@ class LogParser:
                 return False
             else:
                 p_name, p_value = args_pair[0], args_pair[1]
-                if p_name not in self.query_param.keys():
+                if p_name not in consts.ALL_QUERY_PARAMS:
                     print >> buffer, "ParameterError: unknown parameter %s" % p_name
                     return False
                 else:
@@ -210,7 +245,8 @@ class LogParser:
         return True
 
     def check_value_of_parameter(self, p_name, p_val, buffer=None):
-        if p_name == consts.ROUND:
+        if p_name in consts.QUERY_PARAM[consts.ROUND]:
+            # print("in here")
             try:
                 i = int(p_val)
                 # print("got turn "+i.__str__())
@@ -258,6 +294,10 @@ class LogParser:
                 self.get_utilities(p_round=int(self.query_param[consts.ROUND]), buffer=buffer)
             elif self.command in consts.COMMAND_PROJECTION_FULL:
                 self.full_projection(p_round=int(self.query_param[consts.ROUND]), buffer=buffer)
+            elif self.command in consts.COMMAND_GET_MODEL:
+                self.get_models(buffer=buffer)
+            elif self.command in consts.COMMAND_PROJECTION_OPTPATH:
+                self.projection_optpath(p_round=int(self.query_param[consts.ROUND]), buffer=buffer)
             else:
                 print >> buffer, "QueryError: \"%s\" command unkonwn" % self.command
         else:
@@ -369,6 +409,132 @@ class LogParser:
             return False
         actiontree.print_tree(self.actions[p_round][consts.PROJECTION], buffer)
         return True
+
+
+    def get_models(self, buffer=None):
+        l = self.models.keys()
+        if len(l) == 0:
+            print >> buffer, "Error: No logs about agents' models of others."
+        else:
+            for a in l:
+                s = a + " has models: " # + ", ".join(self.models[a])
+                for model_about, models in self.models[a].items():
+                    if model_about != a:
+                        s+= "\n\t- about %s: %s" %(model_about, ", ".join(models))
+                print >> buffer, s
+
+
+    def add_action_in_path_list(self, paths, action, models, buffer):
+        # models = helper.convert_nested_list_to_nested_tuple(action.models)
+        if len(models) == 0:
+            #no model specified: add the action to every branch (every model)
+            # print("no model specified: add the action to every branch (every model)")
+            for _, actions_list in paths.items():
+                actions_list.append(action)
+        else:
+            # models are specified: add them to the correct branch (with matching models)
+            cond = False
+            for c, actions_list in paths.items():
+                for m in models:
+                    d = helper.depth(c)
+                    if d == 2:
+                        for m2 in c:
+                            print(m,m2)
+                            if helper.tuples_equal(m, m2):
+                                cond = True
+                                break
+                    elif d == 1:
+                        if helper.tuples_equal(c,m):
+                            cond = True
+                            break
+                    else:
+                        print("ERROR, we should not be in the case where d = %d" % d)
+                if cond:
+                    # print("models are specified: add them to the correct branch (with matching models)")
+                    actions_list.append(action)
+                    break
+            if not cond:
+                #no branch was found with that model: add action to every branch
+                # print("no branch was found with that model: add action to every branch")
+                for _, actions_list in paths.items():
+                    actions_list.append(action)
+                # print("ERROR, cond is False!! This should never happend.\nWe apologize for the inconvenience, we cannot execute your query and it's not your fault.")
+                # return False
+        return True
+
+
+    def projection_optpath(self, p_round, buffer=None):
+        if p_round == -1 :
+            print >> buffer, "ParameterError: missing argument -round"
+            return False
+        agent = self.actions[p_round][consts.AGENT]
+        combinations = list()
+        for about, list_of_models in self.models[agent].items():
+            if about != agent:
+                prep_list = [(about, m) for m in list_of_models]
+                if len(combinations) == 0:
+                    combinations = prep_list
+                else:
+                    combinations = [zip(x, prep_list) for x in itertools.permutations(combinations,len(prep_list))]
+                    combinations = [item for sublist in combinations for item in sublist]
+        # combinations = helper.convert_nested_tuples_to_nested_list(combinations)
+        print("Combinations of models:")
+        print(combinations)
+        print("------------------\n")
+
+        paths = dict()
+        node = self.actions[p_round][consts.PROJECTION]
+        for c in combinations:
+            paths[c] = list()
+        pile_of_nodes_to_explore = [node]
+        active_models = list()
+
+        while len(pile_of_nodes_to_explore) > 0:
+            node = pile_of_nodes_to_explore.pop()
+            print(node.name)
+            print(active_models)
+            if len(node.models):
+                active_models = node.models
+            # print("in while loop of projection_optpath")
+            # print(node)
+            r = self.add_action_in_path_list(paths=paths, action=node, models=active_models, buffer=buffer)
+            if not r:
+                return False
+            next_action = node.next_action
+            explain_bool = (len(node.children) == 2 and (node.children[0].name == node.name and node.children[1].name))
+            cond = next_action or explain_bool
+            if cond:
+                # print("next action(s)")
+                if next_action:
+                    # print(next_action.name)
+                    pile_of_nodes_to_explore.insert(0, next_action)
+                else:
+                    for child in node.children:
+                        # print(child.name)
+                        pile_of_nodes_to_explore.insert(0, child)
+                    # explain node, the different paths will be the different models of the other agent
+                # print(pile_of_nodes_to_explore)
+
+
+            # print(paths)
+            paths_string = dict()
+            for key, value in paths.items():
+                paths_string[key] = [node.name for node in value]
+                # paths_string[key] = helper.remove_duplicate_consecutive_elements(paths_string[key])
+            print(paths_string)
+
+
+        paths_string = dict()
+        for key, value in paths.items():
+            paths_string[key] = [node.name for node in value]
+            paths_string[key] = helper.remove_duplicate_consecutive_elements(paths_string[key])
+        print(paths_string)
+
+
+
+        # actions.append(node)
+        # while not (node.is_leaf() or (not node.next_action and node.height <= 2)):
+
 
 
 

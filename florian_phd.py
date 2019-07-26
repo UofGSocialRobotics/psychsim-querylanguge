@@ -290,6 +290,7 @@ class AAMAS:
                     agent.setState('PlayImportance', 0.25)
                     agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 3.75, model)
                     agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFun')), 1.25, model)
+                    agent.reward()
                     agent.setHorizon(5)
                     agent.setState('Dominance', -1.0)
                 elif name == 'DominantSmartGretaCaresLiking':
@@ -334,7 +335,7 @@ class AAMAS:
             self.world.printState(buf=output)
 
             # self.world.explain(self.world.step(), level=2)
-            self.world.explain(self.world.step(), level=3, buf=output)
+            self.world.explain(self.world.step(), level=5, buf=output)
             # print("output val")
             # print(output.getvalue())
             # print("after output val")
@@ -348,11 +349,11 @@ class AAMAS:
                 break
 
 
-trueModels = {'Child': 'SubmissiveDumbChildWorkImportant', 'Greta': 'DominantSmartGretaCaresLiking'}
+trueModels = {'Child': 'SubmissiveSmartChildWorkImportant', 'Greta': 'DominantSmartGretaCaresLiking'}
 
 turnOrder = ['Child', 'Greta']
 AAMASTest = AAMAS(turnOrder)
-AAMASTest.modeltest(trueModels, 'DominantSmartGretaCaresNothing', .75, 'SubmissiveDumbChildWorkImportant', .75)
+AAMASTest.modeltest(trueModels, 'DominantSmartGretaCaresNothing', .75, 'SubmissiveSmartChildWorkUseless', .75)
 
 AAMASTest.runit("Wrong model of the child")
 

@@ -1,8 +1,8 @@
 import anytree
 
 
-def create_action_node(name, parent, action, agent, model=None, V=None, V_for_agent=None):
-    return anytree.Node(name, parent=parent, action=action, agent=agent, model=model, V=V, V_for_agent=V_for_agent, next_action=None)
+def create_action_node(name, parent, action, agent, models=None, V=None, V_for_agent=None):
+    return anytree.Node(name, parent=parent, action=action, agent=agent, models=models, V=V, V_for_agent=V_for_agent, next_action=None)
 
 def get_child(node, child_name):
     for child in node.children:
@@ -26,4 +26,6 @@ def print_tree(root, buffer=None):
             V = "V_%s=%.3f" % (node.V_for_agent[0], node.V_for_agent[1])
         else:
             V = ""
-        print >> buffer, "%s%s %s model=%s %s" %(pre, node.name, V, node.model, s_next_action)
+        models_str = node.models.__str__()
+        # print (node.models)
+        print >> buffer, "%s%s %s models=%s %s" %(pre, node.name, V, models_str, s_next_action)
