@@ -20,14 +20,14 @@ UTILITIES = "utilities"
 PROJECTION = "projection"
 
 COMMANDS_GET_ACTIONS = "get action", "get actions"
-COMMAND_REPLAY_SIM = "replay simulation", "replay sim", "replay"
+COMMAND_REPLAY_SIM = "replay simulation", "replay sim", "replay", "replay simu"
 COMMAND_GET_AGENTS = "get agent", "get agents"
 COMMAND_GET_UTILITIES = "get utilities", "get utility"
 COMMAND_GET_MODEL = "get models", ""
 
-COMMAND_PROJECTION_FULL = "projection full", "proj full"
-COMMAND_PROJECTION_OPTPATH = "projection optimalpath", "proj optpath", "projection optpath", "p o"
+COMMAND_PROJECTION_FULL = "projection full", "proj full", "p f"
 COMMAND_PROJECTION_SUBTREE = "projection subtree", "p s", "proj sub", "proj subtree"
+COMMAND_PROJECTION_SEQUENCE = "projection sequence", "proj seq", "projection seq", "projection actionsequence", "p a"
 
 HELP = {
     commands: {
@@ -42,7 +42,7 @@ HELP = {
                 {name: AGENT,
                  optional: True},
                 {name: ACTION,
-                 optional:True}
+                 optional: True}
             ]
         },
         COMMANDS_GET_ACTIONS: {
@@ -52,8 +52,8 @@ HELP = {
                  optional: True},
                 {name: AGENT,
                  optional: True},
-                {name:ACTION,
-                 optional:True}
+                {name: ACTION,
+                 optional: True}
             ]
         },
         COMMAND_GET_UTILITIES: {
@@ -78,6 +78,13 @@ HELP = {
                  optional: False}
             ],
             description: "For the specified round, prints the subtree corresponding to the projection of the specified action."
+        },
+        COMMAND_PROJECTION_SEQUENCE: {
+            parameters: [
+                {name: ROUND,
+                 optional: False},
+            ],
+            description: "For the specified round, print what the agent thinks will be the future sequence of actions - depending on its different mental model of other agents."
         }
     },
     parameters: {

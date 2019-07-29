@@ -23,9 +23,11 @@ class AAMAS:
 
         greta = Agent('Greta')
         child = Agent('Child')
-        agents = [greta, child]
+        cora = Agent('Cora')
+        agents = [greta, child, cora]
         self.world.addAgent(greta)
         self.world.addAgent(child)
+        self.world.addAgent(cora)
 
         # World state
 
@@ -77,6 +79,15 @@ class AAMAS:
                                description='Child liking level expected from the teacher')
         greta.setState('TeacherSocialGoalLiking', 0.0)
 
+        # Cora
+
+        self.world.defineState(cora.name, 'ExercicesDone', float, lo=minMax['min'], hi=minMax['max'],
+                               description='How many exercices Cora has done : MAX = 2')
+        cora.setState('ExercicesDone', 0)
+        self.world.defineState(cora.name, 'TotalFun', float, lo=minMax['min'], hi=minMax['max'],
+                               description='Cora fun value')
+        cora.setState('TotalFun', 0)
+
         # World
 
         self.world.defineState(None, 'round', int, lo=minMax['min'], hi=minMax['max'], description='round number')
@@ -99,6 +110,7 @@ class AAMAS:
                                       True: False}))
 
         greta.addAction({'verb': 'PlayWithChild'})
+        greta.addAction({'verb': 'PlayWithCora'})
 
         tmp = greta.addAction({'verb': 'SwitchOffConsole'})
         greta.setLegal(tmp, makeTree({'if': trueRow(stateKey(child.name, 'ConsoleSwitchedOff')),
@@ -119,9 +131,25 @@ class AAMAS:
                                       False: True,
                                       True: False}))
 
+        # Cora actions
+
+        tmp = child.addAction({'verb': 'DoNothing'})
+        # cora.setLegal(tmp, makeTree({'if': thresholdRow(stateKey(cora.name, 'Dominance'), 0),
+        #                               False: False,
+        #                               True: True}))
+
+        tmp = cora.addAction({'verb': 'Work'})
+
+        tmp = cora.addAction({'verb': 'Play'})
+        cora.setLegal(tmp, makeTree({'if': trueRow(stateKey(cora.name, 'ConsoleSwitchedOff')),
+                                      False: True,
+                                      True: False}))
+
+
         # Levels of belief
         greta.setRecursiveLevel(3)
         child.setRecursiveLevel(3)
+        cora.setRecursiveLevel(3)
         self.world.setOrder(turnOrder)
 
         self.world.addTermination(
@@ -137,6 +165,7 @@ class AAMAS:
         tree = makeTree(approachMatrix(change, .2, minMax['max']))
         self.world.setDynamics(change, atom, tree)
 
+
         # Playing also decrease the teacher liking value toward the child.
         change = stateKey(greta.name, 'Liking')
         tree = makeTree(approachMatrix(change, .3, minMax['min']))
@@ -145,6 +174,18 @@ class AAMAS:
         # Working will improve the child knowledge. It will also decrease his fun.
         atom = Action({'subject': child.name, 'verb': 'Work'})
         change = stateKey(child.name, 'ExercicesDone')
+        tree = makeTree(approachMatrix(change, .2, minMax['max']))
+        self.world.setDynamics(change, atom, tree)
+
+
+        # For cora - same dynamic as for child, except liking of teacher coz it's a tied up to the child
+        atom = Action({'subject': cora.name, 'verb': 'Work'})
+        change = stateKey(cora.name, 'ExercicesDone')
+        tree = makeTree(approachMatrix(change, .2, minMax['max']))
+        self.world.setDynamics(change, atom, tree)
+
+        atom = Action({'subject': cora.name, 'verb': 'Play'})
+        change = stateKey(cora.name, 'TotalFun')
         tree = makeTree(approachMatrix(change, .2, minMax['max']))
         self.world.setDynamics(change, atom, tree)
 
@@ -191,6 +232,11 @@ class AAMAS:
         tree = makeTree(approachMatrix(change, .2, minMax['max']))
         self.world.setDynamics(change, atom, tree)
 
+        atom = Action({'subject': greta.name, 'verb': 'PlayWithCora'})
+        change = stateKey(cora.name, 'TotalFun')
+        tree = makeTree(approachMatrix(change, .4, minMax['max']))
+        self.world.setDynamics(change, atom, tree)
+
         change = stateKey(child.name, 'Liking')
         tree = makeTree(approachMatrix(change, .2, minMax['max']))
         self.world.setDynamics(change, atom, tree)
@@ -212,22 +258,26 @@ class AAMAS:
 
         # Models of child and teacher
 
-        child.addModel('DominantDumbChildWorkUseless', R={}, level=3, rationality=10, horizon=11)
-        child.addModel('DominantDumbChildWorkImportant', R={}, level=3, rationality=10, horizon=11)
-        child.addModel('DominantSmartChildWorkImportant', R={}, level=3, rationality=10, horizon=11)
-        child.addModel('DominantSmartChildWorkUseless', R={}, level=3, rationality=10, horizon=11)
-        child.addModel('SubmissiveDumbChildWorkUseless', R={}, level=3, rationality=10, horizon=11)
-        child.addModel('SubmissiveDumbChildWorkImportant', R={}, level=3, rationality=10, horizon=11)
-        child.addModel('SubmissiveSmartChildWorkImportant', R={}, level=1, rationality=10, horizon=11)
-        child.addModel('SubmissiveSmartChildWorkUseless', R={}, level=1, rationality=10, horizon=11)
+        child.addModel('DominantDumbChildWorkUseless', R={}, level=3, rationality=10) #horizon
+        child.addModel('DominantDumbChildWorkImportant', R={}, level=3, rationality=10)
+        child.addModel('DominantSmartChildWorkImportant', R={}, level=3, rationality=10)
+        child.addModel('DominantSmartChildWorkUseless', R={}, level=3, rationality=10)
+        child.addModel('SubmissiveDumbChildWorkUseless', R={}, level=3, rationality=10)
+        child.addModel('SubmissiveDumbChildWorkImportant', R={}, level=3, rationality=10)
+        child.addModel('SubmissiveSmartChildWorkImportant', R={}, level=1, rationality=10)
+        child.addModel('SubmissiveSmartChildWorkUseless', R={}, level=1, rationality=10)
 
-        greta.addModel('DominantSmartGretaCaresLiking', R={}, level=1, rationality=10, horizon=11)
-        greta.addModel('DominantSmartGretaCaresNothing', R={}, level=1, rationality=10, horizon=11)
+        greta.addModel('DominantSmartGretaCaresLiking', R={}, level=1, rationality=10)
+        greta.addModel('DominantSmartGretaCaresNothing', R={}, level=1, rationality=10)
 
-    def modeltest(self, trueModels, childBeliefAboutGreta, belStrChild, gretaBeliefAboutChild, belStrGreta):
+        cora.addModel('FunCora', R={}, level=1, rationality=10)
+        cora.addModel('NotFunCora', R={}, level=1, rationality=10)
+
+    def modeltest(self, trueModels, childBeliefAboutGreta, belStrChild, gretaBeliefAboutChild, belStrGreta, coraBeliefAboutGreta, belStrCora, gretaBeliefAboutCora, belStrGretaAboutCora):
 
         greta = self.world.agents['Greta']
         child = self.world.agents['Child']
+        cora = self.world.agents['Cora']
 
         for agent in self.world.agents.values():
             for model in agent.models.keys():
@@ -313,6 +363,15 @@ class AAMAS:
                         agent.setState('Dominance', 1.0)
                         # greta.setState('TeacherSocialGoalLiking', 0.0)
 
+                    elif name == "FunCora":
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 1.25, model)
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFun')), 3.75, model)
+                        agent.setHorizon(1)
+                    elif name == "NotFunCora":
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 3.75, model)
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFun')), 1.25, model)
+                        agent.setHorizon(1)
+
                 else:
                     name = model
 
@@ -320,6 +379,11 @@ class AAMAS:
         self.world.setMentalModel('Child', 'Greta', belief)
         belief = {gretaBeliefAboutChild: belStrGreta, trueModels['Child']: 1.0 - belStrGreta}
         self.world.setMentalModel('Greta', 'Child', belief)
+
+        belief = {coraBeliefAboutGreta: belStrCora, trueModels['Greta']: 1.0 - belStrCora}
+        self.world.setMentalModel('Cora', 'Greta', belief)
+        belief = {gretaBeliefAboutCora: belStrGretaAboutCora, trueModels['Cora']: 1.0 - belStrGretaAboutCora}
+        self.world.setMentalModel('Greta', 'Cora', belief)
 
     def runit(self, Msg):
 
@@ -361,17 +425,17 @@ class AAMAS:
                 break
 
 
-trueModels = {'Child': 'SubmissiveDumbChildWorkImportant', 'Greta': 'DominantSmartGretaCaresLiking'}
+trueModels = {'Child': 'SubmissiveDumbChildWorkUseless', 'Greta': 'DominantSmartGretaCaresLiking', 'Cora': 'NotFunCora'}
 
-turnOrder = ['Child', 'Greta']
+turnOrder = ['Child', 'Greta', 'Cora']
 AAMASTest = AAMAS(turnOrder)
-AAMASTest.modeltest(trueModels, 'DominantSmartGretaCaresNothing', .75, 'SubmissiveSmartChildWorkUseless', .75)
+AAMASTest.modeltest(trueModels, 'DominantSmartGretaCaresNothing', .75, 'SubmissiveDumbChildWorkImportant', .75, 'DominantSmartGretaCaresNothing', .75, 'FunCora', .75)
 
 AAMASTest.runit("Wrong model of the child")
 
 # print(output.getvalue())
 
 # Write logs
-f = open("logs/florian_phd.log", "w")
+f = open("logs/three_agents.log", "w")
 f.write(output.getvalue())
 f.close()

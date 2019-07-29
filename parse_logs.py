@@ -114,6 +114,7 @@ class LogParser:
 
 
     def parse_log(self, filepath=None, buffer=None):
+        print("Loading...")
         # last_node = None
         round = -1
         models = list()
@@ -167,7 +168,7 @@ class LogParser:
                     parent = last_node_of_depth[n_tabs-1]
                     new_node = actiontree.create_action_node(agent+"-"+action, parent=parent, action=action, agent=agent, models=models, V=float(utility))
                     if parent.name == agentdoesaction: # n_tabs == 1
-                        parent.next_action = new_node
+                        parent.next_action = new_node.name
                     last_node_of_depth[n_tabs] = new_node
                     for tuple in models:
                         self.add_model(tuple, agent)
@@ -182,8 +183,8 @@ class LogParser:
                     parent = last_node_of_depth[n_tabs-1]
                     new_node = actiontree.create_action_node(agentdoesaction, parent=parent, action=action, agent=agent, models=models, V_for_agent=(u_for,u))
                     last_node_of_depth[n_tabs] = new_node
-                    if parent.agent != agent :
-                        parent.next_action = new_node
+                    if parent.agent != agent or parent.name == agentdoesaction:
+                        parent.next_action = new_node.name
                     for tuple in models:
                         self.add_model(tuple, agent)
                     models = list()
@@ -205,8 +206,8 @@ class LogParser:
 
         self.n_rounds = round
         # print(self.n_rounds)
-        print(self.actions)
-        root = last_node_of_depth[0]
+        # print(self.actions)
+        # root = last_node_of_depth[0]
         # actiontree.print_tree(root)
 
 
@@ -298,7 +299,7 @@ class LogParser:
                 self.projection_subtree(p_round=int(self.query_param[consts.ROUND]), p_action=self.query_param[consts.ACTION], buffer=buffer)
             elif self.command in consts.COMMAND_GET_MODEL:
                 self.get_models(buffer=buffer)
-            elif self.command in consts.COMMAND_PROJECTION_OPTPATH:
+            elif self.command in consts.COMMAND_PROJECTION_SEQUENCE:
                 self.projection_optpath(p_round=int(self.query_param[consts.ROUND]), buffer=buffer)
             else:
                 print >> buffer, "QueryError: \"%s\" command unkonwn" % self.command
@@ -446,7 +447,7 @@ class LogParser:
 
 
     def add_action_in_path_list(self, paths, action, models, buffer):
-        # models = helper.convert_nested_list_to_nested_tuple(action.models)
+
         if len(models) == 0:
             #no model specified: add the action to every branch (every model)
             # print("no model specified: add the action to every branch (every model)")
@@ -454,33 +455,32 @@ class LogParser:
                 actions_list.append(action)
         else:
             # models are specified: add them to the correct branch (with matching models)
-            cond = False
             for c, actions_list in paths.items():
+                cond = 0
                 for m in models:
                     d = helper.depth(c)
                     if d == 2:
                         for m2 in c:
-                            print(m,m2)
+                            # print(m,m2)
                             if helper.tuples_equal(m, m2):
-                                cond = True
-                                break
+                                cond += 1
+                                # break
                     elif d == 1:
                         if helper.tuples_equal(c,m):
-                            cond = True
+                            cond = 1
                             break
                     else:
                         print("ERROR, we should not be in the case where d = %d" % d)
-                if cond:
-                    # print("models are specified: add them to the correct branch (with matching models)")
+                if (d == 1 and cond == 1) or (d == 2 and cond == len(c)):
+                    # print("models are specified: add them to the correct branch (with matching models) --- models are")
+                    # print(c)
                     actions_list.append(action)
                     break
-            if not cond:
+            if (d == 1 and cond == 0) or (d == 2 and cond != len(c)):
                 #no branch was found with that model: add action to every branch
-                # print("no branch was found with that model: add action to every branch")
+                print("/!\\ no branch was found with that model: add action to every branch")
                 for _, actions_list in paths.items():
                     actions_list.append(action)
-                # print("ERROR, cond is False!! This should never happend.\nWe apologize for the inconvenience, we cannot execute your query and it's not your fault.")
-                # return False
         return True
 
 
@@ -512,20 +512,20 @@ class LogParser:
 
         while len(pile_of_nodes_to_explore) > 0:
             node = pile_of_nodes_to_explore.pop()
-            # print(node.name)
-            # print(active_models)
             if len(node.models):
                 active_models = node.models
             r = self.add_action_in_path_list(paths=paths, action=node, models=active_models, buffer=buffer)
             if not r:
                 return False
-            next_action = node.next_action
+            next_action_name = node.next_action
             explain_bool = (len(node.children) == 2 and (node.children[0].name == node.name and node.children[1].name))
-            cond = next_action or explain_bool
+            cond = next_action_name or explain_bool
             if cond:
-                if next_action:
-                    pile_of_nodes_to_explore.insert(0, next_action)
+                if next_action_name:
+                    # pile_of_nodes_to_explore.insert(0, next_action)
+                    pile_of_nodes_to_explore = actiontree.get_next_action(node, next_action_name) + pile_of_nodes_to_explore
                 else:
+                    print(" in else")
                     for child in node.children:
                         pile_of_nodes_to_explore.insert(0, child)
 
@@ -635,6 +635,7 @@ def display_examples():
 if __name__ == "__main__":
 
     argp = argparse.ArgumentParser()
+    argp.add_argument('logfile', metavar='logfile', type=str, help='Path to the log file to wrok from.')
     argp.add_argument("--eval", help="Checks that all commands listed in \"queries.json\" still work", action="store_true")
     argp.add_argument("--test", help="Test the log querier", action="store_true")
     argp.add_argument("--displayex", help="Displays the examples in \"queries.json\" ", action="store_true")
@@ -642,8 +643,8 @@ if __name__ == "__main__":
     args = argp.parse_args()
 
     if (args.test):
-        filename = "logs/florian_phd.log"
-        logparser = LogParser(filename)
+        # filename = "logs/florian_phd.log"
+        logparser = LogParser(args.logfile)
         logparser.query_log()
     elif args.eval:
         eval()

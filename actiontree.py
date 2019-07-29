@@ -11,7 +11,7 @@ def get_child(node, child_name):
     return None
 
 def next_action_str(node):
-    return "NEXTACTION=%s" % node.next_action.name if node.next_action else ""
+    return "NEXTACTION=%s" % node.next_action if node.next_action else ""
 
 
 
@@ -29,3 +29,16 @@ def print_tree(root, buffer=None):
         models_str = node.models.__str__()
         # print (node.models)
         print >> buffer, "%s%s %s models=%s %s" %(pre, node.name, V, models_str, s_next_action)
+
+def get_next_action(node, next_action_name):
+    '''
+    Gets the list of next actions as specified in node
+    :param node: Node from which to search from next action
+    :param next_action_name: name of the next action
+    :return: a list of next actions. --> we may have several next actions if the agent makes several hypotheses following the different models it has of other agents.
+    '''
+    next_actions_list = list()
+    for child in node.children:
+        if child.name == next_action_name:
+            next_actions_list.append(child)
+    return next_actions_list
