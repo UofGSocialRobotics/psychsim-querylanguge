@@ -27,6 +27,7 @@ COMMAND_GET_MODEL = "get models", ""
 
 COMMAND_PROJECTION_FULL = "projection full", "proj full"
 COMMAND_PROJECTION_OPTPATH = "projection optimalpath", "proj optpath", "projection optpath", "p o"
+COMMAND_PROJECTION_SUBTREE = "projection subtree", "p s", "proj sub", "proj subtree"
 
 HELP = {
     commands: {
@@ -68,6 +69,15 @@ HELP = {
                  optional: False}
             ],
             description: "For the specified round, prints the full projection tree as computed by the agent."
+        },
+        COMMAND_PROJECTION_SUBTREE: {
+            parameters: [
+                {name: ROUND,
+                 optional: False},
+                {name: ACTION,
+                 optional: False}
+            ],
+            description: "For the specified round, prints the subtree corresponding to the projection of the specified action."
         }
     },
     parameters: {

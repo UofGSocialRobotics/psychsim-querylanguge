@@ -166,7 +166,7 @@ class LogParser:
                     agent, action = self.who_does_what(agentdoesaction, buffer=buffer)
                     parent = last_node_of_depth[n_tabs-1]
                     new_node = actiontree.create_action_node(agent+"-"+action, parent=parent, action=action, agent=agent, models=models, V=float(utility))
-                    if n_tabs == 1 and parent.name == agentdoesaction :
+                    if parent.name == agentdoesaction: # n_tabs == 1
                         parent.next_action = new_node
                     last_node_of_depth[n_tabs] = new_node
                     for tuple in models:
@@ -294,6 +294,8 @@ class LogParser:
                 self.get_utilities(p_round=int(self.query_param[consts.ROUND]), buffer=buffer)
             elif self.command in consts.COMMAND_PROJECTION_FULL:
                 self.full_projection(p_round=int(self.query_param[consts.ROUND]), buffer=buffer)
+            elif self.command in consts.COMMAND_PROJECTION_SUBTREE:
+                self.projection_subtree(p_round=int(self.query_param[consts.ROUND]), p_action=self.query_param[consts.ACTION], buffer=buffer)
             elif self.command in consts.COMMAND_GET_MODEL:
                 self.get_models(buffer=buffer)
             elif self.command in consts.COMMAND_PROJECTION_OPTPATH:
@@ -409,6 +411,25 @@ class LogParser:
             return False
         actiontree.print_tree(self.actions[p_round][consts.PROJECTION], buffer)
         return True
+
+
+    def projection_subtree(self, p_round, p_action, buffer=None):
+        if p_round == -1 :
+            print >> buffer, "ParameterError: missing argument -round"
+            return False
+        action_found = False
+        for child in self.actions[p_round][consts.PROJECTION].children:
+            if child.action == p_action:
+                actiontree.print_tree(child)
+                action_found = True
+                break
+        if not action_found:
+            print >> buffer, "ParameterError: cannot find action \"%s\" at round %d." % (p_action, p_round)
+            print >> buffer, "At round %s, actions are:"
+            self.get_utilities(p_round, buffer)
+            return False
+        return True
+
 
 
     def get_models(self, buffer=None):

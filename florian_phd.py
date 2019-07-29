@@ -212,17 +212,17 @@ class AAMAS:
 
         # Models of child and teacher
 
-        child.addModel('DominantDumbChildWorkUseless', R={}, level=3, rationality=10, horizon=3)
-        child.addModel('DominantDumbChildWorkImportant', R={}, level=3, rationality=10, horizon=3)
-        child.addModel('DominantSmartChildWorkImportant', R={}, level=3, rationality=10, horizon=5)
-        child.addModel('DominantSmartChildWorkUseless', R={}, level=3, rationality=10, horizon=5)
-        child.addModel('SubmissiveDumbChildWorkUseless', R={}, level=3, rationality=10, horizon=3)
-        child.addModel('SubmissiveDumbChildWorkImportant', R={}, level=3, rationality=10, horizon=3)
-        child.addModel('SubmissiveSmartChildWorkImportant', R={}, level=3, rationality=10, horizon=5)
-        child.addModel('SubmissiveSmartChildWorkUseless', R={}, level=3, rationality=10, horizon=5)
+        child.addModel('DominantDumbChildWorkUseless', R={}, level=3, rationality=10, horizon=11)
+        child.addModel('DominantDumbChildWorkImportant', R={}, level=3, rationality=10, horizon=11)
+        child.addModel('DominantSmartChildWorkImportant', R={}, level=3, rationality=10, horizon=11)
+        child.addModel('DominantSmartChildWorkUseless', R={}, level=3, rationality=10, horizon=11)
+        child.addModel('SubmissiveDumbChildWorkUseless', R={}, level=3, rationality=10, horizon=11)
+        child.addModel('SubmissiveDumbChildWorkImportant', R={}, level=3, rationality=10, horizon=11)
+        child.addModel('SubmissiveSmartChildWorkImportant', R={}, level=1, rationality=10, horizon=11)
+        child.addModel('SubmissiveSmartChildWorkUseless', R={}, level=1, rationality=10, horizon=11)
 
-        greta.addModel('DominantSmartGretaCaresLiking', R={}, level=3, rationality=10, horizon=7)
-        greta.addModel('DominantSmartGretaCaresNothing', R={}, level=3, rationality=10, horizon=7)
+        greta.addModel('DominantSmartGretaCaresLiking', R={}, level=1, rationality=10, horizon=11)
+        greta.addModel('DominantSmartGretaCaresNothing', R={}, level=1, rationality=10, horizon=11)
 
     def modeltest(self, trueModels, childBeliefAboutGreta, belStrChild, gretaBeliefAboutChild, belStrGreta):
 
@@ -234,75 +234,87 @@ class AAMAS:
                 if model is True:
                     name = trueModels[agent.name]
                     print("True Model is: " + name)
+
+                    if name == 'DominantDumbChildWorkUseless':
+                        print("Child is DominantDumbChildWorkUseless")
+                        agent.setState('WorkImportance', 0.25)
+                        agent.setState('PlayImportance', 0.75)
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 1.25, model)
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFun')), 3.75, model)
+                        agent.setState('Dominance', 1.0)
+                        agent.setHorizon(5)
+                    elif name == 'SubmissiveDumbChildWorkUseless':
+                        print("Child is SubmissiveDumbChildWorkUseless")
+                        agent.setState('WorkImportance', 0.25)
+                        agent.setState('PlayImportance', 0.75)
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 1.25, model)
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFun')), 3.75, model)
+                        agent.setHorizon(5)
+                        agent.setState('Dominance', -1.0)
+                    elif name == 'DominantDumbChildWorkImportant':
+                        print("Child is DominantDumbChildWorkImportant")
+                        agent.setState('WorkImportance', 0.75)
+                        agent.setState('PlayImportance', 0.25)
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 3.75, model)
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFun')), 1.25, model)
+                        agent.setHorizon(5)
+                        agent.setState('Dominance', 1.0)
+                    elif name == 'SubmissiveDumbChildWorkImportant':
+                        print("Child is SubmissiveDumbChildWorkImportant")
+                        agent.setState('WorkImportance', 0.75)
+                        agent.setState('PlayImportance', 0.25)
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 3.75, model)
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFun')), 1.25, model)
+                        agent.setHorizon(5)
+                        agent.setState('Dominance', -1.0)
+                    elif name == 'DominantSmartChildWorkUseless':
+                        print("Child is DominantSmartChildWorkUseless")
+                        agent.setState('WorkImportance', 0.25)
+                        agent.setState('PlayImportance', 0.75)
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 1.25, model)
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFun')), 3.75, model)
+                        agent.setHorizon(5)
+                        agent.setState('Dominance', 1.0)
+                    elif name == 'SubmissiveSmartChildWorkUseless':
+                        print("Child is SubmissiveSmartChildWorkUseless")
+                        agent.setState('WorkImportance', 0.25)
+                        agent.setState('PlayImportance', 0.75)
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 1.25, model)
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFun')), 3.75, model)
+                        agent.setHorizon(5)
+                        agent.setState('Dominance', -1.0)
+                    elif name == 'DominantSmartChildWorkImportant':
+                        print("Child is DominantSmartChildWorkImportant")
+                        agent.setState('WorkImportance', 0.75)
+                        agent.setState('PlayImportance', 0.25)
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 3.75, model)
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFun')), 1.25, model)
+                        agent.setHorizon(5)
+                        agent.setState('Dominance', 1.0)
+                    elif name == 'SubmissiveSmartChildWorkImportant':
+                        print("Child is SubmissiveSmartChildWorkImportant")
+                        agent.setState('WorkImportance', 0.75)
+                        agent.setState('PlayImportance', 0.25)
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 3.75, model)
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFun')), 1.25, model)
+                        # agent.reward()
+                        agent.setHorizon(5)
+                        agent.setState('Dominance', -1.0)
+                    elif name == 'DominantSmartGretaCaresLiking':
+                        print("Greta is DominantSmartGretaCaresLiking")
+                        agent.setReward(maximizeFeature(stateKey(child.name, 'ExercicesDone')), 3.75, model)
+                        agent.setHorizon(5)
+                        agent.setState('Dominance', 1.0)
+                        # agent.setState('TeacherSocialGoalLiking', 5.0)
+                    elif name == 'DominantSmartGretaCaresNothing':
+                        print("Greta is DominantSmartGretaCaresNothing")
+                        agent.setReward(maximizeFeature(stateKey(child.name, 'ExercicesDone')), 3.75, model)
+                        agent.setHorizon(5)
+                        agent.setState('Dominance', 1.0)
+                        # greta.setState('TeacherSocialGoalLiking', 0.0)
+
                 else:
                     name = model
-                if name == 'DominantDumbChildWorkUseless':
-                    agent.setState('WorkImportance', 0.25)
-                    agent.setState('PlayImportance', 0.75)
-                    agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 1.25, model)
-                    agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFun')), 3.75, model)
-                    agent.setState('Dominance', 1.0)
-                    agent.setHorizon(3)
-                elif name == 'SubmissiveDumbChildWorkUseless':
-                    agent.setState('WorkImportance', 0.25)
-                    agent.setState('PlayImportance', 0.75)
-                    agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 1.25, model)
-                    agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFun')), 3.75, model)
-                    agent.setHorizon(3)
-                    agent.setState('Dominance', -1.0)
-                elif name == 'DominantDumbChildWorkImportant':
-                    agent.setState('WorkImportance', 0.75)
-                    agent.setState('PlayImportance', 0.25)
-                    agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 3.75, model)
-                    agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFun')), 1.25, model)
-                    agent.setHorizon(3)
-                    agent.setState('Dominance', 1.0)
-                elif name == 'SubmissiveDumbChildWorkImportant':
-                    agent.setState('WorkImportance', 0.75)
-                    agent.setState('PlayImportance', 0.25)
-                    agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 3.75, model)
-                    agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFun')), 1.25, model)
-                    agent.setHorizon(3)
-                    agent.setState('Dominance', -1.0)
-                elif name == 'DominantSmartChildWorkUseless':
-                    agent.setState('WorkImportance', 0.25)
-                    agent.setState('PlayImportance', 0.75)
-                    agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 1.25, model)
-                    agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFun')), 3.75, model)
-                    agent.setHorizon(5)
-                    agent.setState('Dominance', 1.0)
-                elif name == 'SubmissiveSmartChildWorkUseless':
-                    agent.setState('WorkImportance', 0.25)
-                    agent.setState('PlayImportance', 0.75)
-                    agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 1.25, model)
-                    agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFun')), 3.75, model)
-                    agent.setHorizon(5)
-                    agent.setState('Dominance', -1.0)
-                elif name == 'DominantSmartChildWorkImportant':
-                    agent.setState('WorkImportance', 0.75)
-                    agent.setState('PlayImportance', 0.25)
-                    agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 3.75, model)
-                    agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFun')), 1.25, model)
-                    agent.setHorizon(5)
-                    agent.setState('Dominance', 1.0)
-                elif name == 'SubmissiveSmartChildWorkImportant':
-                    agent.setState('WorkImportance', 0.75)
-                    agent.setState('PlayImportance', 0.25)
-                    agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 3.75, model)
-                    agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFun')), 1.25, model)
-                    agent.reward()
-                    agent.setHorizon(5)
-                    agent.setState('Dominance', -1.0)
-                elif name == 'DominantSmartGretaCaresLiking':
-                    agent.setReward(maximizeFeature(stateKey(child.name, 'ExercicesDone')), 3.75, model)
-                    agent.setHorizon(3)
-                    agent.setState('Dominance', 1.0)
-                    # agent.setState('TeacherSocialGoalLiking', 5.0)
-                elif name == 'DominantSmartGretaCaresNothing':
-                    agent.setReward(maximizeFeature(stateKey(child.name, 'ExercicesDone')), 3.75, model)
-                    agent.setHorizon(3)
-                    agent.setState('Dominance', 1.0)
-                    # greta.setState('TeacherSocialGoalLiking', 0.0)
 
         belief = {childBeliefAboutGreta: belStrChild, trueModels['Greta']: 1.0 - belStrChild}
         self.world.setMentalModel('Child', 'Greta', belief)
