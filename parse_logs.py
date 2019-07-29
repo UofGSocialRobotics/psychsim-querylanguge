@@ -499,9 +499,9 @@ class LogParser:
                     combinations = [zip(x, prep_list) for x in itertools.permutations(combinations,len(prep_list))]
                     combinations = [item for sublist in combinations for item in sublist]
         # combinations = helper.convert_nested_tuples_to_nested_list(combinations)
-        print("Combinations of models:")
-        print(combinations)
-        print("------------------\n")
+        # print("Combinations of models:")
+        # print(combinations)
+        # print("------------------\n")
 
         paths = dict()
         node = self.actions[p_round][consts.PROJECTION]
@@ -512,12 +512,10 @@ class LogParser:
 
         while len(pile_of_nodes_to_explore) > 0:
             node = pile_of_nodes_to_explore.pop()
-            print(node.name)
-            print(active_models)
+            # print(node.name)
+            # print(active_models)
             if len(node.models):
                 active_models = node.models
-            # print("in while loop of projection_optpath")
-            # print(node)
             r = self.add_action_in_path_list(paths=paths, action=node, models=active_models, buffer=buffer)
             if not r:
                 return False
@@ -525,31 +523,35 @@ class LogParser:
             explain_bool = (len(node.children) == 2 and (node.children[0].name == node.name and node.children[1].name))
             cond = next_action or explain_bool
             if cond:
-                # print("next action(s)")
                 if next_action:
-                    # print(next_action.name)
                     pile_of_nodes_to_explore.insert(0, next_action)
                 else:
                     for child in node.children:
-                        # print(child.name)
                         pile_of_nodes_to_explore.insert(0, child)
-                    # explain node, the different paths will be the different models of the other agent
-                # print(pile_of_nodes_to_explore)
-
-
-            # print(paths)
-            paths_string = dict()
-            for key, value in paths.items():
-                paths_string[key] = [node.name for node in value]
-                # paths_string[key] = helper.remove_duplicate_consecutive_elements(paths_string[key])
-            print(paths_string)
-
 
         paths_string = dict()
         for key, value in paths.items():
             paths_string[key] = [node.name for node in value]
             paths_string[key] = helper.remove_duplicate_consecutive_elements(paths_string[key])
-        print(paths_string)
+
+        s = "At round %d, %s thinks that the future sequence of actions will be" % (p_round, self.actions[p_round][consts.AGENT])
+        for key, value in paths_string.items():
+            d = helper.depth(key)
+            if d == 2:
+                #agent models about several agents
+                s += "\n\t- if"
+                for (m_about, m) in key:
+                    s += " %s is %s," % (m_about, m)
+                s = s[:-1] + ":"
+            elif d ==1:
+                #agent has models about one other agent
+                m_about, m = key[0], key[1]
+                s += "\n\t- if %s is %s:" % (m_about, m)
+            else:
+                print("ERROR, we should not have depth should be 1 or 2!")
+            s += " " + ", ".join(value)
+        print >> buffer, s
+        # print(paths_string)
 
 
 
