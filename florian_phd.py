@@ -124,8 +124,7 @@ class AAMAS:
         child.setRecursiveLevel(3)
         self.world.setOrder(turnOrder)
 
-        self.world.addTermination(
-            makeTree({'if': thresholdRow(stateKey(None, 'round'), self.maxRounds), True: True, False: False}))
+        self.world.addTermination(makeTree({'if': thresholdRow(stateKey(None, 'round'), self.maxRounds), True: True, False: False}))
 
         # Dynamics of actions
 
@@ -223,6 +222,10 @@ class AAMAS:
 
         greta.addModel('DominantSmartGretaCaresLiking', R={}, level=1, rationality=10, horizon=11)
         greta.addModel('DominantSmartGretaCaresNothing', R={}, level=1, rationality=10, horizon=11)
+
+        for action in greta.actions | child.actions:
+            tree = makeTree(incrementMatrix(stateKey(None,'round'),1))
+            self.world.setDynamics(stateKey(None,'round'),action,tree)
 
     def modeltest(self, trueModels, childBeliefAboutGreta, belStrChild, gretaBeliefAboutChild, belStrGreta):
 
