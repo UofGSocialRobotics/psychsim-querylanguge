@@ -1,8 +1,8 @@
 import anytree
 
 
-def create_action_node(name, parent, action, agent, models=None, V=None, V_for_agent=None):
-    return anytree.Node(name, parent=parent, action=action, agent=agent, models=models, V=V, V_for_agent=V_for_agent, next_action=None)
+def create_action_node(name, parent, action, agent, models=None, V=None, V_for_agent=None, p=None):
+    return anytree.Node(name, parent=parent, action=action, agent=agent, models=models, V=V, V_for_agent=V_for_agent, p=p, next_action=None)
 
 def get_child(node, child_name):
     for child in node.children:
@@ -26,9 +26,13 @@ def print_tree(root, buffer=None):
             V = "V_%s=%.3f" % (node.V_for_agent[0], node.V_for_agent[1])
         else:
             V = ""
+        if isinstance(node.p, float):
+            p_str = "p=%.2f" % node.p
+        else:
+            p_str = ""
         models_str = node.models.__str__()
         # print (node.models)
-        print >> buffer, "%s%s %s models=%s %s" %(pre, node.name, V, models_str, s_next_action)
+        print >> buffer, "%s%s %s %s models=%s %s" % (pre, node.name, V, p_str, models_str, s_next_action)
 
 def get_next_action(node, next_action_name):
     '''
@@ -42,3 +46,23 @@ def get_next_action(node, next_action_name):
         if child.name == next_action_name:
             next_actions_list.append(child)
     return next_actions_list
+
+
+def remove_consecutive_duplicate_actions(nodes_list):
+    if len(nodes_list) == 1:
+        return nodes_list
+    new_list = list()
+    n1 = nodes_list[0]
+    for n2 in nodes_list[1:]:
+        # print("n2.name", n2.name)
+        last_node_appended = False
+        if n1.name == n2.name:
+            if n2.p:
+                n1 = n2
+        else:
+            new_list.append(n1)
+            last_node_appended = True
+            n1 = n2
+    if not last_node_appended:
+        new_list.append(n2)
+    return new_list

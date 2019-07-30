@@ -98,7 +98,9 @@ class LogParser:
         splited_at_equal = line.split("=")
         u = float(helper.extract_floats(splited_at_equal[1])[0])
         u_for = splited_at_equal[0].split("_")[-1]
-        return agent, action, u, u_for
+        p = float(line.split("[P=")[1].split("%")[0])/ 100.0
+        # print(agent, action, u, u_for, p)
+        return agent, action, u, u_for, p
 
     # def init_projection_tree(self):
     #     last_node_of_depth = dict()
@@ -188,7 +190,7 @@ class LogParser:
                 elif "(V_" in line:
                     # print(i, line, n_tabs)
                     # print(last_node_of_depth)
-                    agent, action, u, u_for = self.parse_projection_action_utility_line(line)
+                    agent, action, u, u_for, p = self.parse_projection_action_utility_line(line)
                     agentdoesaction = agent+'-'+action
                     try:
                         parent = last_node_of_depth[n_tabs-1]
@@ -197,7 +199,7 @@ class LogParser:
                         print("at line", i, line)
                         print(last_node_of_depth)
                         exit(0)
-                    new_node = actiontree.create_action_node(agentdoesaction, parent=parent, action=action, agent=agent, models=models, V_for_agent=(u_for,u))
+                    new_node = actiontree.create_action_node(agentdoesaction, parent=parent, action=action, agent=agent, models=models, V_for_agent=(u_for,u), p=p)
                     last_node_of_depth[n_tabs] = new_node
                     if parent.agent != agent or parent.name == agentdoesaction:
                         parent.next_action = new_node.name
@@ -546,26 +548,34 @@ class LogParser:
                         pile_of_nodes_to_explore.insert(0, child)
 
         paths_string = dict()
+        # print(paths)
         for key, value in paths.items():
-            paths_string[key] = [node.name for node in value]
-            paths_string[key] = helper.remove_duplicate_consecutive_elements(paths_string[key])
+            reduced_list = actiontree.remove_consecutive_duplicate_actions(value)
+            # print("\nreduced_list")
+            # print(key)
+            # print(reduced_list)
+            paths_string[key] = dict()
+            paths_string[key]["string_list"] = [node.name for node in reduced_list]
+            paths_string[key]["p"] = reduced_list[0].p
+            # paths_string[key] = helper.remove_duplicate_consecutive_elements(paths_string[key])
 
         s = "At round %d, %s thinks that the future sequence of actions will be" % (p_round, self.actions[p_round][consts.AGENT])
         for key, value in paths_string.items():
+            string_actions_list, p = value["string_list"], value["p"]
             d = helper.depth(key)
             if d == 2:
                 #agent models about several agents
-                s += "\n\t- if"
+                s += "\n\t[p=%.3f] " % p
                 for (m_about, m) in key:
                     s += " %s is %s," % (m_about, m)
                 s = s[:-1] + ":"
             elif d ==1:
                 #agent has models about one other agent
                 m_about, m = key[0], key[1]
-                s += "\n\t- if %s is %s:" % (m_about, m)
+                s += "\n\t[p=%.3f] %s is %s:" % (p, m_about, m)
             else:
                 print("ERROR, we should not have depth should be 1 or 2!")
-            s += " " + ", ".join(value)
+            s += " " + ", ".join(string_actions_list)
         print >> buffer, s
         # print(paths_string)
 

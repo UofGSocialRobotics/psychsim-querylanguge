@@ -132,8 +132,9 @@ class World:
                 else:
                     dist = [(outcome['new'],1.)]
                 for new,prob in dist:
-                    # print(new, prob)
+                    # print("prob,outcome['probability']",prob,outcome['probability'])
                     try:
+                        # print(prob*outcome['probability'])
                         state[new] += prob*outcome['probability']
                     except KeyError:
                         state[new] = prob*outcome['probability']
@@ -197,7 +198,8 @@ class World:
             for action in outcome['actions'][stochastic[0]].domain():
                 prob = outcome['actions'][stochastic[0]][action]
                 actions = dict(outcome['actions'])
-                actions[stochastic[0]] = action 
+                actions[stochastic[0]] = action
+                print("here we are")
                 effect = self.effect(actions,outcome['old'],prob,updateBeliefs=updateBeliefs)
                 if len(effect) == 0:
                     # No consistent transition for this action (don't blame me, I'm just the messenger)
@@ -230,6 +232,7 @@ class World:
         @param probability: the likelihood of this particular action set (default is 100%)
         @type probability: float
         """
+        # print("in effect, proability = ", probability)
         result = {'effect': [],
                   'new': VectorDistribution({vector: probability})}
         for keys in self.evaluationOrder:
@@ -858,14 +861,15 @@ class World:
             if not isinstance(element,float):
                 distribution.replace(element,float(self.agents[modelee].model2index(element)))
         distribution.normalize()
-        print(distribution)
+        # print(distribution)
         key = modelKey(modelee)
         if not self.variables.has_key(key):
             self.defineVariable(key)
         if isinstance(state,str):
             # This is the name of the modeling agent (*cough* hack *cough*)
             self.agents[state].setBelief(key,distribution,model)
-            print(key,distribution,model)
+            # print(key,distribution,model)
+            # print("key,distribution,model")
         else:
             # Otherwise, assume we're changing the model in the current state
             self.setFeature(key,distribution,state)
@@ -1198,7 +1202,7 @@ class World:
                         n_tabs = helper.count_tabs_at_beginning_of_line(tab+"v")
                         n_tabs_prefix = helper.count_tabs_at_beginning_of_line(prefix+"v")
                         # print('%s%s (V_%s=%6.3f) [P=%d%%] t=%d n_tabs=%d, n_tabs_prefix=%d' % (tab,ActionSet(node['actions']),V[state]['agent'],node['R'],node['probability']*100., t, n_tabs, n_tabs_prefix))
-                        print >> buf,'%s%s (V_%s=%6.3f) [P=%d%%] %.3f' % (tab,ActionSet(node['actions']),V[state]['agent'],node['R'],node['probability']*100., node['probability'])
+                        print >> buf,'%s%s (V_%s=%6.3f) [P=%d%%]' % (tab,ActionSet(node['actions']),V[state]['agent'],node['R'],node['probability']*100.)
                         for other in node['decisions'].keys():
                             # print("changes lucile")
                             if t % 2 == 0:
