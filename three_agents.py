@@ -15,7 +15,7 @@ class AAMAS:
 
     def __init__(self, turnOrder):
 
-        self.maxRounds = 11
+        self.maxRounds = 15
         self.world = World()
         minMax = {'min': -5, 'max': 5}
 
@@ -81,12 +81,12 @@ class AAMAS:
 
         # Cora
 
-        self.world.defineState(cora.name, 'ExercicesDone', float, lo=minMax['min'], hi=minMax['max'],
+        self.world.defineState(cora.name, 'ExercicesDoneCora', float, lo=minMax['min'], hi=minMax['max'],
                                description='How many exercices Cora has done : MAX = 2')
-        cora.setState('ExercicesDone', 0)
-        self.world.defineState(cora.name, 'TotalFun', float, lo=minMax['min'], hi=minMax['max'],
+        cora.setState('ExercicesDoneCora', 0)
+        self.world.defineState(cora.name, 'TotalFunCora', float, lo=minMax['min'], hi=minMax['max'],
                                description='Cora fun value')
-        cora.setState('TotalFun', 0)
+        cora.setState('TotalFunCora', 0)
 
         # World
 
@@ -138,9 +138,9 @@ class AAMAS:
         #                               False: False,
         #                               True: True}))
 
-        tmp = cora.addAction({'verb': 'Work'})
+        tmp = cora.addAction({'verb': 'WorkCora'})
 
-        tmp = cora.addAction({'verb': 'Play'})
+        tmp = cora.addAction({'verb': 'PlayCora'})
         cora.setLegal(tmp, makeTree({'if': trueRow(stateKey(cora.name, 'ConsoleSwitchedOff')),
                                       False: True,
                                       True: False}))
@@ -179,13 +179,13 @@ class AAMAS:
 
 
         # For cora - same dynamic as for child, except liking of teacher coz it's a tied up to the child
-        atom = Action({'subject': cora.name, 'verb': 'Work'})
-        change = stateKey(cora.name, 'ExercicesDone')
+        atom = Action({'subject': cora.name, 'verb': 'WorkCora'})
+        change = stateKey(cora.name, 'ExercicesDoneCora')
         tree = makeTree(approachMatrix(change, .2, minMax['max']))
         self.world.setDynamics(change, atom, tree)
 
-        atom = Action({'subject': cora.name, 'verb': 'Play'})
-        change = stateKey(cora.name, 'TotalFun')
+        atom = Action({'subject': cora.name, 'verb': 'PlayCora'})
+        change = stateKey(cora.name, 'TotalFunCora')
         tree = makeTree(approachMatrix(change, .2, minMax['max']))
         self.world.setDynamics(change, atom, tree)
 
@@ -233,7 +233,7 @@ class AAMAS:
         self.world.setDynamics(change, atom, tree)
 
         atom = Action({'subject': greta.name, 'verb': 'PlayWithCora'})
-        change = stateKey(cora.name, 'TotalFun')
+        change = stateKey(cora.name, 'TotalFunCora')
         tree = makeTree(approachMatrix(change, .4, minMax['max']))
         self.world.setDynamics(change, atom, tree)
 
@@ -280,13 +280,14 @@ class AAMAS:
         cora = self.world.agents['Cora']
 
         for agent in self.world.agents.values():
+            print("\nFor agent %s" % agent.name)
             for model in agent.models.keys():
                 if model is True:
                     name = trueModels[agent.name]
                     print("True Model is: " + name)
 
                     if name == 'DominantDumbChildWorkUseless':
-                        print("Child is DominantDumbChildWorkUseless")
+                        # print("Child is DominantDumbChildWorkUseless")
                         agent.setState('WorkImportance', 0.25)
                         agent.setState('PlayImportance', 0.75)
                         agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 1.25, model)
@@ -294,7 +295,7 @@ class AAMAS:
                         agent.setState('Dominance', 1.0)
                         agent.setHorizon(1)
                     elif name == 'SubmissiveDumbChildWorkUseless':
-                        print("Child is SubmissiveDumbChildWorkUseless")
+                        # print("Child is SubmissiveDumbChildWorkUseless")
                         agent.setState('WorkImportance', 0.25)
                         agent.setState('PlayImportance', 0.75)
                         agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 1.25, model)
@@ -302,7 +303,7 @@ class AAMAS:
                         agent.setHorizon(1)
                         agent.setState('Dominance', -1.0)
                     elif name == 'DominantDumbChildWorkImportant':
-                        print("Child is DominantDumbChildWorkImportant")
+                        # print("Child is DominantDumbChildWorkImportant")
                         agent.setState('WorkImportance', 0.75)
                         agent.setState('PlayImportance', 0.25)
                         agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 3.75, model)
@@ -310,7 +311,7 @@ class AAMAS:
                         agent.setHorizon(1)
                         agent.setState('Dominance', 1.0)
                     elif name == 'SubmissiveDumbChildWorkImportant':
-                        print("Child is SubmissiveDumbChildWorkImportant")
+                        # print("Child is SubmissiveDumbChildWorkImportant")
                         agent.setState('WorkImportance', 0.75)
                         agent.setState('PlayImportance', 0.25)
                         agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 3.75, model)
@@ -318,7 +319,7 @@ class AAMAS:
                         agent.setHorizon(1)
                         agent.setState('Dominance', -1.0)
                     elif name == 'DominantSmartChildWorkUseless':
-                        print("Child is DominantSmartChildWorkUseless")
+                        # print("Child is DominantSmartChildWorkUseless")
                         agent.setState('WorkImportance', 0.25)
                         agent.setState('PlayImportance', 0.75)
                         agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 1.25, model)
@@ -326,7 +327,7 @@ class AAMAS:
                         agent.setHorizon(3)
                         agent.setState('Dominance', 1.0)
                     elif name == 'SubmissiveSmartChildWorkUseless':
-                        print("Child is SubmissiveSmartChildWorkUseless")
+                        # print("Child is SubmissiveSmartChildWorkUseless")
                         agent.setState('WorkImportance', 0.25)
                         agent.setState('PlayImportance', 0.75)
                         agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 1.25, model)
@@ -334,7 +335,7 @@ class AAMAS:
                         agent.setHorizon(3)
                         agent.setState('Dominance', -1.0)
                     elif name == 'DominantSmartChildWorkImportant':
-                        print("Child is DominantSmartChildWorkImportant")
+                        # print("Child is DominantSmartChildWorkImportant")
                         agent.setState('WorkImportance', 0.75)
                         agent.setState('PlayImportance', 0.25)
                         agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 3.75, model)
@@ -342,7 +343,7 @@ class AAMAS:
                         agent.setHorizon(3)
                         agent.setState('Dominance', 1.0)
                     elif name == 'SubmissiveSmartChildWorkImportant':
-                        print("Child is SubmissiveSmartChildWorkImportant")
+                        # print("Child is SubmissiveSmartChildWorkImportant")
                         agent.setState('WorkImportance', 0.75)
                         agent.setState('PlayImportance', 0.25)
                         agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 3.75, model)
@@ -351,29 +352,27 @@ class AAMAS:
                         agent.setHorizon(3)
                         agent.setState('Dominance', -1.0)
                     elif name == 'DominantSmartGretaCaresLiking':
-                        print("Greta is DominantSmartGretaCaresLiking")
+                        # print("Greta is DominantSmartGretaCaresLiking")
                         agent.setReward(maximizeFeature(stateKey(child.name, 'ExercicesDone')), 3.75, model)
-                        agent.setHorizon(3)
+                        agent.setHorizon(6)
                         agent.setState('Dominance', 1.0)
                         # agent.setState('TeacherSocialGoalLiking', 5.0)
                     elif name == 'DominantSmartGretaCaresNothing':
-                        print("Greta is DominantSmartGretaCaresNothing")
+                        # print("Greta is DominantSmartGretaCaresNothing")
                         agent.setReward(maximizeFeature(stateKey(child.name, 'ExercicesDone')), 3.75, model)
-                        agent.setHorizon(3)
+                        agent.setHorizon(6)
                         agent.setState('Dominance', 1.0)
                         # greta.setState('TeacherSocialGoalLiking', 0.0)
 
                     elif name == "FunCora":
-                        agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 1.25, model)
-                        agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFun')), 3.75, model)
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDoneCora')), 1.25, model)
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFunCora')), 3.75, model)
                         agent.setHorizon(1)
                     elif name == "NotFunCora":
-                        agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDone')), 3.75, model)
-                        agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFun')), 1.25, model)
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'ExercicesDoneCora')), 3.75, model)
+                        agent.setReward(maximizeFeature(stateKey(agent.name, 'TotalFunCora')), 1.25, model)
                         agent.setHorizon(1)
 
-                else:
-                    name = model
 
         belief = {childBeliefAboutGreta: belStrChild, trueModels['Greta']: 1.0 - belStrChild}
         self.world.setMentalModel('Child', 'Greta', belief)
@@ -427,7 +426,7 @@ class AAMAS:
 
 trueModels = {'Child': 'SubmissiveDumbChildWorkUseless', 'Greta': 'DominantSmartGretaCaresLiking', 'Cora': 'NotFunCora'}
 
-turnOrder = ['Child', 'Greta', 'Cora']
+turnOrder = ['Greta', 'Child', 'Cora']
 AAMASTest = AAMAS(turnOrder)
 AAMASTest.modeltest(trueModels, 'DominantSmartGretaCaresNothing', .75, 'SubmissiveDumbChildWorkImportant', .75, 'DominantSmartGretaCaresNothing', .75, 'FunCora', .75)
 

@@ -48,8 +48,9 @@ class LogParser:
         self.query_param[consts.ACTION] = None
 
 
-    def update_round(self, current_round, line):
-        if consts.ROUND in line:
+    def update_round(self, current_round, line, n_tabs):
+        if (n_tabs == 0 and consts.ROUND in line) or (n_tabs == 3 and consts.ROUND in line and "World" not in line):#and not "World" in line:
+            # print(n_tabs, line)
             line_splited = line.split("round:")
             round_str = line_splited[1]
             return int(re.search('\t(.*)\n', round_str).group(1))
@@ -63,8 +64,11 @@ class LogParser:
             print >> buffer, "ParsingError: cannot find \"-\" in %s thus "+shared_err_msg % agentdoesaction
             return False
         elif len(tuple) > 2:
-            print >> buffer, "ParsingError: found too many \"-\" in %s thus "+shared_err_msg % agentdoesaction
-            return False
+            # print >> buffer, "ParsingError: found too many \"-\" in %s thus "+shared_err_msg % agentdoesaction
+            # return False
+            # print(tuple)
+            agent, action = tuple [0], "-".join(tuple[1:])
+            return agent, action
         else:
             return tuple
 
@@ -88,7 +92,9 @@ class LogParser:
     def parse_projection_action_utility_line(self, line):
         splited_at_dash = line.strip().split("-")
         agent = splited_at_dash[0]
-        action = splited_at_dash[1].split()[0]
+        action = "-".join(splited_at_dash[1:]).split()[0]
+        # print("parse_projection_action_utility_line")
+        # print(agent, action)
         splited_at_equal = line.split("=")
         u = float(helper.extract_floats(splited_at_equal[1])[0])
         u_for = splited_at_equal[0].split("_")[-1]
@@ -125,22 +131,24 @@ class LogParser:
         with open(filepath) as fp:
             lines = fp.readlines()
             for i, line in enumerate(lines):
-                # print(i)
-                # print(line)
 
-                new_round = self.update_round(current_round=round, line=line)
+                n_tabs = helper.count_tabs_at_beginning_of_line(line)
+                new_round = self.update_round(current_round=round, line=line, n_tabs=n_tabs)
                 if new_round != round:
                     round = new_round
                     last_node_of_depth = dict()
-                n_tabs = helper.count_tabs_at_beginning_of_line(line)
+                    # print("line", i)
+                    # print("new round, round = %d" % round)
 
 
                 if n_tabs == 0:
+                    # print(i)
 
                     ## What the agent actually does
                     if line[0:4] == "100%":
                         pass
                     else:
+                        # print(i, line)
                         agentdoesaction = line[:-1]
                         if len(agentdoesaction):
                             agent, action = self.who_does_what(agentdoesaction, buffer=buffer)
@@ -154,8 +162,6 @@ class LogParser:
                             root = actiontree.create_action_node(agentdoesaction, parent=None, agent=agent, action=action, models=models)
                             self.actions[round][consts.PROJECTION] = root
                             last_node_of_depth[0] = root
-                            # print("initiated last_node_of_depth[0])")
-                            # print(last_node_of_depth[0])
 
 
                 elif "__model__" in line:
@@ -163,6 +169,8 @@ class LogParser:
                     # print(models)
 
                 elif "V(" in line:
+                    # print(i, line, n_tabs)
+                    # print(last_node_of_depth)
                     agentdoesaction, utility = self.parse_utility(line)
                     agent, action = self.who_does_what(agentdoesaction, buffer=buffer)
                     parent = last_node_of_depth[n_tabs-1]
@@ -178,9 +186,17 @@ class LogParser:
 
 
                 elif "(V_" in line:
+                    # print(i, line, n_tabs)
+                    # print(last_node_of_depth)
                     agent, action, u, u_for = self.parse_projection_action_utility_line(line)
                     agentdoesaction = agent+'-'+action
-                    parent = last_node_of_depth[n_tabs-1]
+                    try:
+                        parent = last_node_of_depth[n_tabs-1]
+                    except KeyError as e:
+                        print("KeyError: %s" % e.__str__())
+                        print("at line", i, line)
+                        print(last_node_of_depth)
+                        exit(0)
                     new_node = actiontree.create_action_node(agentdoesaction, parent=parent, action=action, agent=agent, models=models, V_for_agent=(u_for,u))
                     last_node_of_depth[n_tabs] = new_node
                     if parent.agent != agent or parent.name == agentdoesaction:

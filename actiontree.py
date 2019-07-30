@@ -20,7 +20,7 @@ def print_tree(root, buffer=None):
     # print("%s %s" % (root.name, s_next_action))
     for pre, _, node in anytree.RenderTree(root):
         s_next_action = next_action_str(node)
-        if node.V:
+        if isinstance(node.V, float):
             V = "V=%.3f" % node.V
         elif node.V_for_agent:
             V = "V_%s=%.3f" % (node.V_for_agent[0], node.V_for_agent[1])

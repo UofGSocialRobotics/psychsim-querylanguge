@@ -8,6 +8,9 @@ from modified_psychsim.action import Action,ActionSet
 from modified_psychsim.world import World,stateKey,actionKey
 from modified_psychsim.agent import Agent
 
+from StringIO import StringIO
+
+output = StringIO()
 
     # Create scenario
 class Negotiate:
@@ -47,7 +50,7 @@ class Negotiate:
             self.world.defineState(me.name,'agree',bool)
             me.setState('agree',False)  
             # Actions
-            me.addAction({'verb': 'do nothing'})
+            me.addAction({'verb': 'doNothing'})
             for amt in range(totals['apple'] + 1):
                 tmp = me.addAction({'verb': 'offerApple','object': other.name,'amount': amt})
                 me.setLegal(tmp,makeTree({'if': trueRow(stateKey(None, 'agreement')),
@@ -72,7 +75,7 @@ class Negotiate:
                                                    False: True},
                                            True: False}))
 
-            meAccept = me.addAction({'verb': 'accept offer','object': other.name})
+            meAccept = me.addAction({'verb': 'acceptOffer','object': other.name})
             me.setLegal(meAccept,makeTree({'if': trueRow(stateKey(None, 'appleOffer')),
                                            True: {'if': trueRow(stateKey(None, 'pearOffer')),
                                                   True: {'if': trueRow(stateKey(None, 'agreement')),
@@ -155,7 +158,7 @@ class Negotiate:
     # agents = [david.name,stacy.name]
     # Dynamics of agreements
         for i in range(2):
-            atom = Action({'subject': agents[i],'verb': 'accept offer', 'object': agents[1-i]})
+            atom = Action({'subject': agents[i],'verb': 'acceptOffer', 'object': agents[1-i]})
 
             # accept offer sets accept
             tree = makeTree(setTrueMatrix(stateKey(atom['subject'],'agree')))
@@ -228,7 +231,8 @@ class Negotiate:
     def runit(self,Msg):
         print Msg
         for t in range(self.maxRounds + 1):
-            self.world.explain(self.world.step(),level=1)
+            self.world.printState(buf=output)
+            self.world.explain(self.world.step(),level=5,buf=output)
             # print self.world.step()
             self.world.state.select()
             # self.world.printState()
@@ -260,60 +264,65 @@ turnOrder=['Stacy','David']
 negagts = Negotiate(turnOrder)
 negagts.modeltest(trueModels,'appleLover','pearLover', 0.75)
 negagts.runit("Integrative and correct beliefs")
+#
+# negagts = Negotiate(turnOrder)
+# negagts.modeltest(trueModels,'pearLover','appleLover', 0.75)
+# negagts.runit("Integrative and incorrect beliefs")
+#
+# negagts = Negotiate(turnOrder)
+# negagts.modeltest(trueModels,'pearLover','pearLover', 0.75)
+# negagts.runit("Integrative and David has incorrect beliefs")
+#
+#
+# trueModels = {'Stacy': 'appleLover',
+#               'David': 'appleLover'}
+# negagts = Negotiate(turnOrder)
+# negagts.modeltest(trueModels,'appleLover','appleLover', 0.75)
+# negagts.runit("Distributive and correct beliefs")
+#
+# negagts = Negotiate(turnOrder)
+# negagts.modeltest(trueModels,'pearLover','pearLover', 0.75)
+# negagts.runit("Distributive and incorrect beliefs")
+#
+# negagts = Negotiate(turnOrder)
+# negagts.modeltest(trueModels,'pearLover','appleLover', 0.75)
+# negagts.runit("Distributive and David has incorrect beliefs")
+#
+#
+# turnOrder=['David','Stacy']
+# trueModels = {'Stacy': 'appleLover',
+#               'David': 'pearLover'}
+# negagts = Negotiate(turnOrder)
+# negagts.modeltest(trueModels,'appleLover','pearLover', 0.75)
+# negagts.runit("Integrative and correct beliefs")
+#
+# negagts = Negotiate(turnOrder)
+# negagts.modeltest(trueModels,'pearLover','appleLover', 0.75)
+# negagts.runit("Integrative and incorrect beliefs")
+#
+# negagts = Negotiate(turnOrder)
+# negagts.modeltest(trueModels,'pearLover','pearLover', 0.75)
+# negagts.runit("Integrative and David has incorrect beliefs")
+#
+#
+# trueModels = {'Stacy': 'appleLover',
+#               'David': 'appleLover'}
+# negagts = Negotiate(turnOrder)
+# negagts.modeltest(trueModels,'appleLover','appleLover', 0.75)
+# negagts.runit("Distributive and correct beliefs")
+#
+# negagts = Negotiate(turnOrder)
+# negagts.modeltest(trueModels,'pearLover','pearLover', 0.75)
+# negagts.runit("Distributive and incorrect beliefs")
+#
+# negagts = Negotiate(turnOrder)
+# negagts.modeltest(trueModels,'pearLover','appleLover', 0.75)
+# negagts.runit("Distributive and David has incorrect beliefs")
+#
 
-negagts = Negotiate(turnOrder)
-negagts.modeltest(trueModels,'pearLover','appleLover', 0.75)
-negagts.runit("Integrative and incorrect beliefs")
-
-negagts = Negotiate(turnOrder)
-negagts.modeltest(trueModels,'pearLover','pearLover', 0.75)
-negagts.runit("Integrative and David has incorrect beliefs")
-
-    
-trueModels = {'Stacy': 'appleLover',
-              'David': 'appleLover'}
-negagts = Negotiate(turnOrder)
-negagts.modeltest(trueModels,'appleLover','appleLover', 0.75)
-negagts.runit("Distributive and correct beliefs")
-
-negagts = Negotiate(turnOrder)
-negagts.modeltest(trueModels,'pearLover','pearLover', 0.75)
-negagts.runit("Distributive and incorrect beliefs")
-
-negagts = Negotiate(turnOrder)
-negagts.modeltest(trueModels,'pearLover','appleLover', 0.75)
-negagts.runit("Distributive and David has incorrect beliefs")
 
 
-turnOrder=['David','Stacy']
-trueModels = {'Stacy': 'appleLover',
-              'David': 'pearLover'}
-negagts = Negotiate(turnOrder)
-negagts.modeltest(trueModels,'appleLover','pearLover', 0.75)
-negagts.runit("Integrative and correct beliefs")
-
-negagts = Negotiate(turnOrder)
-negagts.modeltest(trueModels,'pearLover','appleLover', 0.75)
-negagts.runit("Integrative and incorrect beliefs")
-
-negagts = Negotiate(turnOrder)
-negagts.modeltest(trueModels,'pearLover','pearLover', 0.75)
-negagts.runit("Integrative and David has incorrect beliefs")
-
-    
-trueModels = {'Stacy': 'appleLover',
-              'David': 'appleLover'}
-negagts = Negotiate(turnOrder)
-negagts.modeltest(trueModels,'appleLover','appleLover', 0.75)
-negagts.runit("Distributive and correct beliefs")
-
-negagts = Negotiate(turnOrder)
-negagts.modeltest(trueModels,'pearLover','pearLover', 0.75)
-negagts.runit("Distributive and incorrect beliefs")
-
-negagts = Negotiate(turnOrder)
-negagts.modeltest(trueModels,'pearLover','appleLover', 0.75)
-negagts.runit("Distributive and David has incorrect beliefs")
-
-
-
+# Write logs
+f = open("logs/Full_Ntest.log", "w")
+f.write(output.getvalue())
+f.close()

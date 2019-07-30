@@ -108,6 +108,9 @@ class World:
         oldStates = state.domain()
         for stateVector in oldStates:
             prob = state[stateVector]
+            # print("state", state)
+            # print("stateVector", stateVector)
+            # print("prob", prob)
             outcome = self.stepFromState(stateVector,actions)
             outcome['probability'] = prob
             outcomes.append(outcome)
@@ -119,6 +122,8 @@ class World:
                     # No effect. Just keep moving
                     continue
                 elif isinstance(outcome['new'],Distribution):
+                    # print("we're here - right where we should be?")
+                    # print(outcome['new'])
                     if select:
                         new = outcome['new'].sample()
                         dist = [(new,1.)]
@@ -127,6 +132,7 @@ class World:
                 else:
                     dist = [(outcome['new'],1.)]
                 for new,prob in dist:
+                    # print(new, prob)
                     try:
                         state[new] += prob*outcome['probability']
                     except KeyError:
@@ -852,12 +858,14 @@ class World:
             if not isinstance(element,float):
                 distribution.replace(element,float(self.agents[modelee].model2index(element)))
         distribution.normalize()
+        print(distribution)
         key = modelKey(modelee)
         if not self.variables.has_key(key):
             self.defineVariable(key)
         if isinstance(state,str):
             # This is the name of the modeling agent (*cough* hack *cough*)
             self.agents[state].setBelief(key,distribution,model)
+            print(key,distribution,model)
         else:
             # Otherwise, assume we're changing the model in the current state
             self.setFeature(key,distribution,state)
@@ -1190,7 +1198,7 @@ class World:
                         n_tabs = helper.count_tabs_at_beginning_of_line(tab+"v")
                         n_tabs_prefix = helper.count_tabs_at_beginning_of_line(prefix+"v")
                         # print('%s%s (V_%s=%6.3f) [P=%d%%] t=%d n_tabs=%d, n_tabs_prefix=%d' % (tab,ActionSet(node['actions']),V[state]['agent'],node['R'],node['probability']*100., t, n_tabs, n_tabs_prefix))
-                        print >> buf,'%s%s (V_%s=%6.3f) [P=%d%%]' % (tab,ActionSet(node['actions']),V[state]['agent'],node['R'],node['probability']*100.)
+                        print >> buf,'%s%s (V_%s=%6.3f) [P=%d%%] %.3f' % (tab,ActionSet(node['actions']),V[state]['agent'],node['R'],node['probability']*100., node['probability'])
                         for other in node['decisions'].keys():
                             # print("changes lucile")
                             if t % 2 == 0:
